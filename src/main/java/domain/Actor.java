@@ -85,6 +85,8 @@ public abstract class Actor extends DomainEntity {
 	private UserAccount userAccount;
 
 
+	// FALTA AÑADIR LA RELACION PARA QUE LOS ACTORES SE PUEDAN SUSCRIBIR A OTROS ACTORES
+
 	@NotNull
 	@Valid
 	@OneToOne(cascade = CascadeType.ALL, optional = false)
