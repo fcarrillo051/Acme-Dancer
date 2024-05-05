@@ -1,8 +1,8 @@
 /*
  * UserAccount.java
- * 
+ *
  * Copyright (C) 2018 Universidad de Sevilla
- * 
+ *
  * The use of this project is hereby constrained to the conditions of the
  * TDG Licence, a copy of which you may download from
  * http://www.tdg-seville.info/License.html
@@ -18,7 +18,9 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
@@ -30,11 +32,14 @@ import domain.DomainEntity;
 
 @Entity
 @Access(AccessType.PROPERTY)
+@Table(uniqueConstraints = {
+	@UniqueConstraint(columnNames = "username")
+})
 public class UserAccount extends DomainEntity implements UserDetails {
 
 	// Constructors -----------------------------------------------------------
 
-	private static final long	serialVersionUID	= 7254823034213841482L;
+	private static final long serialVersionUID = 7254823034213841482L;
 
 
 	public UserAccount() {
@@ -43,8 +48,8 @@ public class UserAccount extends DomainEntity implements UserDetails {
 		this.authorities = new ArrayList<Authority>();
 	}
 
-
 	// Attributes -------------------------------------------------------------
+
 
 	// UserDetails interface --------------------------------------------------
 
@@ -60,7 +65,7 @@ public class UserAccount extends DomainEntity implements UserDetails {
 		return this.username;
 	}
 
-	public void setUsername(final String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 
@@ -70,7 +75,7 @@ public class UserAccount extends DomainEntity implements UserDetails {
 		return this.password;
 	}
 
-	public void setPassword(final String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -83,18 +88,18 @@ public class UserAccount extends DomainEntity implements UserDetails {
 		return this.authorities;
 	}
 
-	public void setAuthorities(final Collection<Authority> authorities) {
+	public void setAuthorities(Collection<Authority> authorities) {
 		this.authorities = authorities;
 	}
 
-	public void addAuthority(final Authority authority) {
+	public void addAuthority(Authority authority) {
 		Assert.notNull(authority);
 		Assert.isTrue(!this.authorities.contains(authority));
 
 		this.authorities.add(authority);
 	}
 
-	public void removeAuthority(final Authority authority) {
+	public void removeAuthority(Authority authority) {
 		Assert.notNull(authority);
 		Assert.isTrue(this.authorities.contains(authority));
 

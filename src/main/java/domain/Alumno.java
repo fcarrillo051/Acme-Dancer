@@ -8,6 +8,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -26,7 +27,8 @@ public class Alumno extends Actor {
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<Solicitud> solicitudes;
+	private Collection<Solicitud>	solicitudes;
+	private TarjetaCredito			tarjetaCredito;
 
 
 	@NotNull
@@ -37,6 +39,15 @@ public class Alumno extends Actor {
 
 	public void setSolicitudes(final Collection<Solicitud> solicitudes) {
 		this.solicitudes = solicitudes;
+	}
+
+	@OneToOne(mappedBy = "alumno")
+	public TarjetaCredito getTarjetaCredito() {
+		return this.tarjetaCredito;
+	}
+
+	public void setTarjetaCredito(final TarjetaCredito tarjetaCredito) {
+		this.tarjetaCredito = tarjetaCredito;
 	}
 
 }

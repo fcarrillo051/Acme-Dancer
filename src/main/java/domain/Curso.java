@@ -8,9 +8,11 @@ import java.util.HashSet;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -56,8 +58,6 @@ public class Curso extends DomainEntity {
 		this.nivel = nivel;
 	}
 
-	//Añadir restriccion fechaFin > fechaInicio
-
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
@@ -77,6 +77,9 @@ public class Curso extends DomainEntity {
 	}
 
 	public void setFechaFinal(final Date fechaFinal) {
+		// Verificar si fechaFinal es mayor que fechaInicio
+		if (fechaFinal != null && this.fechaInicio != null && fechaFinal.before(this.fechaInicio))
+			throw new IllegalArgumentException("La fecha final debe ser posterior a la fecha de inicio");
 		this.fechaFinal = fechaFinal;
 	}
 	//Añadir etiquetas
@@ -99,7 +102,9 @@ public class Curso extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<Solicitud> solicitudes;
+	private Collection<Solicitud>	solicitudes;
+	private Estilo					estilo;
+	private Academia				academia;
 
 
 	@NotNull
@@ -110,6 +115,28 @@ public class Curso extends DomainEntity {
 
 	public void setSolicitudes(final Collection<Solicitud> solicitudes) {
 		this.solicitudes = solicitudes;
+	}
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public Estilo getEstilo() {
+		return this.estilo;
+	}
+
+	public void setEstilo(final Estilo estilo) {
+		this.estilo = estilo;
+	}
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public Academia getAcademia() {
+		return this.academia;
+	}
+
+	public void setAcademia(final Academia academia) {
+		this.academia = academia;
 	}
 
 }
