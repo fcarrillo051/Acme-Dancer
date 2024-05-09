@@ -38,7 +38,8 @@ public class Curso extends DomainEntity {
 	private Date			fechaInicio;
 	private Date			fechaFinal;
 	private DiaImpartido	diaImpartido;
-	private Date			horaImpartido;
+	//private Date			horaImpartido;
+	private String			horaImpartido;
 
 
 	@NotBlank
@@ -82,7 +83,8 @@ public class Curso extends DomainEntity {
 			throw new IllegalArgumentException("La fecha final debe ser posterior a la fecha de inicio");
 		this.fechaFinal = fechaFinal;
 	}
-	//Añadir etiquetas
+
+	@NotNull
 	public DiaImpartido getDiaImpartido() {
 		return this.diaImpartido;
 	}
@@ -90,14 +92,27 @@ public class Curso extends DomainEntity {
 	public void setDiaImpartido(final DiaImpartido diaImpartido) {
 		this.diaImpartido = diaImpartido;
 	}
-	//Añadir etiquetas
-	public Date getHoraImpartido() {
+
+	@NotNull
+	public String getHoraImpartido() {
 		return this.horaImpartido;
 	}
 
-	public void setHoraImpartido(final Date horaImpartido) {
+	public void setHoraImpartido(final String horaImpartido) {
 		this.horaImpartido = horaImpartido;
 	}
+	/*
+	 * @Temporal(TemporalType.TIMESTAMP)
+	 *
+	 * @DateTimeFormat(pattern = "HH:mm")
+	 * public Date getHoraImpartido() {
+	 * return this.horaImpartido;
+	 * }
+	 *
+	 * public void setHoraImpartido(final Date horaImpartido) {
+	 * this.horaImpartido = horaImpartido;
+	 * }
+	 */
 
 
 	// Relationships ----------------------------------------------------------
