@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
- * PopulateDatabase.xml
- *
- * Copyright (C) 2018 Universidad de Sevilla
- * 
- * The use of this project is hereby constrained to the conditions of the 
- * TDG Licence, a copy of which you may download from 
- * http://www.tdg-seville.info/License.html
- -->
+<!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	">
-	
+
 	<!-- User accounts -->
 
 	<bean id="userAccount1" class="security.UserAccount">
 		<property name="username" value="admin" />
-		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="password"
+			value="21232f297a57a5a743894a0e4a801fc3" />
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
@@ -32,7 +27,8 @@
 
 	<bean id="userAccount2" class="security.UserAccount">
 		<property name="username" value="academia" />
-		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
+		<property name="password"
+			value="91ec1f9324753048c0096d036a694f86" />
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
@@ -44,17 +40,127 @@
 
 	<bean id="userAccount3" class="security.UserAccount">
 		<property name="username" value="alumno" />
-		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
+		<property name="password"
+			value="1b3231655cebb7a1f783eddf27d254ca" />
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
 					<property name="authority" value="ALUMNO" />
 				</bean>
-				
+
 			</list>
 		</property>
 	</bean>
+
+	<!-- Other domain beans come here -->
+
+	<!-- Alumnos -->
+
+	<bean id="alumno1" class="domain.Alumno">
+		<property name="nombre" value="Alumno 1" />
+		<property name="apellidos" value="Apellidos Alumno 1" />
+		<property name="correoElectronico" value="alumno1@mail.com" />
+		<property name="numTelefono" value="Phone-1" />
+		<property name="codigoPostal" value="1" />
+		<property name="userAccount" ref="userAccount3" />
+		<property name="tarjetaCredito" ref="tarjetaCredito1" />
+		<property name="solicitudes">
+			<list>
+				<ref bean="solicitud1" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Tarjetas de Credito -->
+
+	<bean id="tarjetaCredito1" class="domain.TarjetaCredito">
+		<property name="nombreTitular" value="Alumno 1" />
+		<property name="marca" value="VISA" />
+		<property name="numero" value="4111 1111 1111 1111" />
+		<property name="mesCad" value="1" />
+		<property name="anioCad" value="2025" />
+		<property name="cvv" value="150" />
+		<property name="alumno" ref="alumno1" />
+	</bean>
+
+	<!-- Academias -->
+
+	<bean id="academia1" class="domain.Academia">
+		<property name="nombre" value="Responable 1" />
+		<property name="apellidos" value="Apellidos Responsable 1" />
+		<property name="correoElectronico" value="academia1@mail.com" />
+		<property name="numTelefono" value="Phone-1" />
+		<property name="codigoPostal" value="1" />
+		<property name="userAccount" ref="userAccount2" />
+		<property name="cursos">
+			<list>
+				<ref bean="curso1" />
+			</list>
+		</property>
+		<property name="tutoriales">
+			<list>
+				<ref bean="tutorial1" />
+			</list>
+		</property>
+		<property name="nombreComercial" value="Academia 1" />
+	</bean>
+
+	<!-- Tutoriales -->
+
+	<bean id="tutorial1" class="domain.Tutorial">
+		<property name="titulo" value="Titulo 1" />
+		<property name="descripcion" value="Estilo 1" />
+		<property name="visitas" value="100" />
+		<property name="academia" ref="academia1" />
+		<property name="video" value="https://example.com/video1.mp4" />
+	</bean>
+
+	<!-- Cursos -->
+
+	<bean id="curso1" class="domain.Curso">
+		<property name="titulo" value="Curso 1" />
+		<property name="nivel" value="Principiante" />
+		<property name="fechaInicio" value="01/31/2015 12:00" />
+		<property name="fechaFinal" value="01/31/2016 12:00" />
+		<property name="diaImpartido" value="Lunes" />
+		<!-- <property name="horaImpartido" value="12:00" /> -->
+		<property name="solicitudes">
+			<list>
+				<ref bean="solicitud1" />
+			</list>
+		</property>
+		<property name="estilo" ref="estilo1" />
+		<property name="academia" ref="academia1" />
+	</bean>
 	
-	<!-- Other domain beans come here -->	
-	
+	<!-- Solicitudes -->
+
+	<bean id="solicitud1" class="domain.Solicitud">
+		<property name="momentoSolicitud" value="01/31/2015 12:00" />
+		<property name="dueño" ref="alumno1" />
+		<property name="curso" ref="curso1" />
+	</bean>
+
+	<!-- Estilos -->
+
+	<bean id="estilo1" class="domain.Estilo">
+		<property name="titulo" value="Titulo 1" />
+		<property name="descripcion" value="Estilo 1" />
+		<property name="cursos">
+			<list>
+				<ref bean="curso1" />
+			</list>
+		</property>
+		<property name="videos">
+			<list>
+				<value>https://example.com/video1.mp4</value>
+			</list>
+		</property>
+		<property name="imagenes">
+			<list>
+				<value>https://example.com/imagen1.jpg</value>
+			</list>
+		</property>
+	</bean>
+
 </beans>

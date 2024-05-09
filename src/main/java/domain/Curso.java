@@ -82,7 +82,8 @@ public class Curso extends DomainEntity {
 			throw new IllegalArgumentException("La fecha final debe ser posterior a la fecha de inicio");
 		this.fechaFinal = fechaFinal;
 	}
-	//Añadir etiquetas
+
+	@NotNull
 	public DiaImpartido getDiaImpartido() {
 		return this.diaImpartido;
 	}
@@ -90,7 +91,10 @@ public class Curso extends DomainEntity {
 	public void setDiaImpartido(final DiaImpartido diaImpartido) {
 		this.diaImpartido = diaImpartido;
 	}
-	//Añadir etiquetas
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "HH:mm")
 	public Date getHoraImpartido() {
 		return this.horaImpartido;
 	}
