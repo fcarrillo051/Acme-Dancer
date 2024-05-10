@@ -1,12 +1,13 @@
 #./src/main/resources/Entities.map
-#Fri May 10 01:28:29 CEST 2024
-tarjetaCredito1=31
-tutorial1=33
-academia1=32
-alumno1=30
-solicitud1=36
-estilo1=34
-curso1=35
-userAccount3=29
-userAccount2=28
-userAccount1=27
+#Fri May 10 10:46:46 CEST 2024
+tarjetaCredito1=35
+admin1=33
+tutorial1=37
+academia1=36
+alumno1=34
+solicitud1=40
+estilo1=38
+curso1=39
+userAccount3=32
+userAccount2=31
+userAccount1=30

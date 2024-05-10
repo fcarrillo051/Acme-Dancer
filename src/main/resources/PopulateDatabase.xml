@@ -54,6 +54,17 @@
 
 	<!-- Other domain beans come here -->
 
+	<!-- Administrador -->
+
+	<bean id="admin1" class="domain.Administrador">
+		<property name="nombre" value="Administrador 1" />
+		<property name="apellidos" value="Apellidos Administrador 1" />
+		<property name="correoElectronico" value="admin@mail.com" />
+		<property name="numTelefono" value="Phone-1" />
+		<property name="codigoPostal" value="1" />
+		<property name="userAccount" ref="userAccount1" />
+	</bean>
+
 	<!-- Alumnos -->
 
 	<bean id="alumno1" class="domain.Alumno">
@@ -123,7 +134,7 @@
 		<property name="fechaInicio" value="01/31/2015 12:00" />
 		<property name="fechaFinal" value="01/31/2016 12:00" />
 		<property name="diaImpartido" value="Lunes" />
-		<property name="horaImpartido" value="12:00" /> 
+		<property name="horaImpartido" value="12:00" />
 		<property name="solicitudes">
 			<list>
 				<ref bean="solicitud1" />
@@ -132,7 +143,7 @@
 		<property name="estilo" ref="estilo1" />
 		<property name="academia" ref="academia1" />
 	</bean>
-	
+
 	<!-- Solicitudes -->
 
 	<bean id="solicitud1" class="domain.Solicitud">
