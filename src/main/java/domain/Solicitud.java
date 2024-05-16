@@ -28,7 +28,8 @@ public class Solicitud extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private Date momentoSolicitud;
+	private Date			momentoSolicitud;
+	private EstadoSolicitud	estadoSolicitud;
 
 
 	@NotNull
@@ -41,6 +42,15 @@ public class Solicitud extends DomainEntity {
 
 	public void setMomentoSolicitud(final Date momentoSolicitud) {
 		this.momentoSolicitud = momentoSolicitud;
+	}
+
+	@NotNull
+	public EstadoSolicitud getEstadoSolicitud() {
+		return this.estadoSolicitud;
+	}
+
+	public void setEstadoSolicitud(EstadoSolicitud estadoSolicitud) {
+		this.estadoSolicitud = estadoSolicitud;
 	}
 
 
