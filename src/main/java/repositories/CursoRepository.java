@@ -28,7 +28,7 @@ public interface CursoRepository extends JpaRepository<Curso, Integer> {
 	@Query("select c from Curso c where c.diaImpartido = ?1")
 	Collection<Curso> findBydiaImpartido(DiaImpartido diaImpartido);
 
-	@Query("select c from Curso c where c.horaImpartida = ?1")
+	@Query("select c from Curso c where c.horaImpartido = ?1")
 	Collection<Curso> findByhoraImpartida(Date horaImpartida);
 
 }

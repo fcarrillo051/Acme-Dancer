@@ -13,7 +13,7 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
 	@Query("select a from Actor a where a.nombre = ?1")
 	Collection<Actor> findByNombre(String nombre);
 
-	@Query("select a from Actor a where a.apellido = ?1")
+	@Query("select a from Actor a where a.apellidos = ?1")
 	Collection<Actor> findByApellido(String apellido);
 
 	@Query("select a from Actor a where a.correoElectronico = ?1")
