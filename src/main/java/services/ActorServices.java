@@ -20,10 +20,12 @@ public class ActorServices {
 
 
 	// Simple CRUD methods ------------------------------
-	public Actor create() {//pregutar ponce
-		return new Actor() {
-		};
-	}
+	/*
+	 * public Actor create() {//pregutar ponce
+	 * return new Actor() {
+	 * };
+	 * }
+	 */
 	public Collection<Actor> findAll() {
 		return this.actorRepository.findAll();
 	}
