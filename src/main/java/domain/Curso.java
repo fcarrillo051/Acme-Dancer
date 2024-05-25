@@ -39,7 +39,7 @@ public class Curso extends DomainEntity {
 	private Date			fechaFinal;
 	private DiaImpartido	diaImpartido;
 	//private Date			horaImpartido;
-	private Date			horaImpartido;
+	private String			horaImpartido;
 
 
 	@NotBlank
@@ -94,12 +94,11 @@ public class Curso extends DomainEntity {
 	}
 
 	@NotNull
-	@DateTimeFormat(pattern = "HH:mm")
-	public Date getHoraImpartido() {
+	public String getHoraImpartido() {
 		return this.horaImpartido;
 	}
 
-	public void setHoraImpartido(final Date horaImpartido) {
+	public void setHoraImpartido(final String horaImpartido) {
 		this.horaImpartido = horaImpartido;
 	}
 	/*
