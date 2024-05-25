@@ -4,11 +4,14 @@ package domain;
 import java.util.Collection;
 import java.util.HashSet;
 
-import javax.persistence.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.URL;
 
 // HE ELIMINADO LA ETIQUETA URL PARA SOLUCIONAR TEMPORALMENTE EL ERROR. ENSEÑARSELO AL PROFESOR.
 
@@ -51,7 +54,7 @@ public class Estilo extends DomainEntity {
 	}
 
 	@ElementCollection
-	@URL
+	//@URL
 	public Collection<String> getVideos() {
 		return this.videos;
 	}
@@ -61,7 +64,7 @@ public class Estilo extends DomainEntity {
 	}
 
 	@ElementCollection
-	@URL
+	//@URL
 	public Collection<String> getImagenes() {
 		return this.imagenes;
 	}

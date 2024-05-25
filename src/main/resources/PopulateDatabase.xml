@@ -148,6 +148,7 @@
 
 	<bean id="solicitud1" class="domain.Solicitud">
 		<property name="momentoSolicitud" value="01/31/2015 12:00" />
+		<property name="estadoSolicitud" value="Pendiente"/>
 		<property name="dueño" ref="alumno1" />
 		<property name="curso" ref="curso1" />
 	</bean>
