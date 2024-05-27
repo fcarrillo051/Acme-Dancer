@@ -12,7 +12,7 @@ import repositories.CursoRepository;
 
 @Service
 @Transactional
-public class CursoServices {
+public class CursoService {
 
 	// Managed repository -------------------------------
 	@Autowired
