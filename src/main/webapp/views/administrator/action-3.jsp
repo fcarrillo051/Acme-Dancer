@@ -16,13 +16,4 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-
-<display:table name="curso" id="row"
-	requestURI="curso/administrator/list.do"
-	pagesize="5" class="displaytag" >
-	<display:column property="titulo" titleKey="curso.titulo" />
-	<display:column property="fechaInicio" titleKey="curso.fechaInicio" />
-	<display:column property="fechaFinal" titleKey=“curso.fechaFinal“ />
-	<display:column property="diaImpartido" titleKey="curso.diaImpartido" />
-	<display:column property="horaImpartido" titleKey="curso.horaImpartido" />
-</display:table>
+<p><spring:message code="administrator.action.3" /></p>

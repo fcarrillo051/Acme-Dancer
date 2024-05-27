@@ -16,9 +16,9 @@
       
 <tiles-definitions>
 
-	<definition name="list-curso" extends="master.page">	
-		<put-attribute name="title" value="Listado de Cursos" />
-		<put-attribute name="body" value="/views/curso/list-curso.jsp" />
-	</definition>
+	<definition name="curso/list" extends="master.page">
+		<put-attribute name="title" value="Lista de cursos" />
+		<put-attribute name="body" value="/views/curso/list.jsp" />
+	</definition>	
 		
 </tiles-definitions>
