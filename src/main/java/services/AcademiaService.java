@@ -12,7 +12,7 @@ import repositories.AcademiaRepository;
 
 @Service
 @Transactional
-public class AcademiaServices {
+public class AcademiaService {
 
 	// Managed repository -------------------------------
 	@Autowired

@@ -46,5 +46,9 @@
 	<spring:message code="curso.horaImpartido" var="horaImpartidoHeader" />
 	<display:column property="horaImpartido" title="${horaImpartidoHeader}"	sortable="true" />
 	
+	<spring:message code="academia.nombreComercial" var="academiaHeader" />
+	<display:column property="academia.nombreComercial" title="${academiaHeader}" sortable="true" />
+	
 </display:table>
+
 

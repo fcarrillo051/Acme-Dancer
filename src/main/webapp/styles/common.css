@@ -8,6 +8,10 @@
  * 
  */
 
+* {
+    font-family: "Myriad Pro", Arial, sans-serif;
+}
+
 .error {
 	color: red;
 	font-weight: bolder;

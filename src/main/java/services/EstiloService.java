@@ -12,7 +12,7 @@ import repositories.EstiloRepository;
 
 @Service
 @Transactional
-public class EstiloServices {
+public class EstiloService {
 
 	// Managed repository -------------------------------
 	@Autowired

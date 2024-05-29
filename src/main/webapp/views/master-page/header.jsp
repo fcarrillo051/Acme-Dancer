@@ -1,13 +1,3 @@
-<%--
- * header.jsp
- *
- * Copyright (C) 2018 Universidad de Sevilla
- * 
- * The use of this project is hereby constrained to the conditions of the 
- * TDG Licence, a copy of which you may download from 
- * http://www.tdg-seville.info/License.html
- --%>
-
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -25,30 +15,30 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="administrator/action-1.do"><spring:message code="master.page.administrator.action.1" /></a></li>
-					<li><a href="administrator/action-2.do"><spring:message code="master.page.administrator.action.2" /></a></li>		
-					<li><a href="administrator/action-3.do"><spring:message code="master.page.administrator.action.3" /></a></li>		
-					
-					<li><a href="curso/administrator/list.do"><spring:message code="master.page.administrator.cursos" /></a></li>
-										
+					<li><a href="administrator/action-2.do"><spring:message code="master.page.administrator.action.2" /></a></li>					
+					<li><a href="curso/administrator/list.do"><spring:message code="master.page.administrator.cursos" /></a></li>						
 				</ul>
 			</li>
 		</security:authorize>
 		
-		<security:authorize access="hasRole('CUSTOMER')">
-			<li><a class="fNiv"><spring:message	code="master.page.customer" /></a>
+		<security:authorize access="hasRole('ACADEMIA')">
+			<li><a class="fNiv"><spring:message	code="master.page.academia" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="customer/action-1.do"><spring:message code="master.page.customer.action.1" /></a></li>
-					<li><a href="customer/action-2.do"><spring:message code="master.page.customer.action.2" /></a></li>					
-					<li><a href="curso/customer/list.do"><spring:message code="master.page.customer.cursos" /></a></li>
-										
+					<li><a href="academia/action-1.do"><spring:message code="master.page.academia.action.1" /></a></li>
+					<li><a href="academia/action-2.do"><spring:message code="master.page.academia.action.2" /></a></li>		
+				
 				</ul>
 			</li>
 		</security:authorize>
 		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
-		</security:authorize>
+			<li><a class= "fNiv" href="curso/list.do"><spring:message code="master.page.cursos" /></a></li>						
+			<li><a class= "fNiv" href="academia/list.do"><spring:message code="master.page.academias" /></a></li>						
+				<li><a class= "fNiv" href="estilo/list.do"><spring:message code="master.page.estilos" /></a></li>						
+			
+			</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">
 			<li>
@@ -71,4 +61,5 @@
 <div>
 	<a href="?language=en">en</a> | <a href="?language=es">es</a>
 </div>
+
 
