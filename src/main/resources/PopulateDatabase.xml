@@ -143,6 +143,23 @@
 		<property name="estilo" ref="estilo1" />
 		<property name="academia" ref="academia1" />
 	</bean>
+	
+	<bean id="curso2" class="domain.Curso">
+		<property name="titulo" value="Curso 2" />
+		<property name="nivel" value="Principiante" />
+		<property name="fechaInicio" value="01/31/2015 12:00" />
+		<property name="fechaFinal" value="01/31/2016 12:00" />
+		<property name="diaImpartido" value="Lunes" />
+		<property name="horaImpartido" value="12:00" />
+		<property name="solicitudes">
+			<list>
+				<ref bean="solicitud1" />
+			</list>
+		</property>
+		<property name="estilo" ref="estilo1" />
+		<property name="academia" ref="academia1" />
+	</bean>
+	
 
 	<!-- Solicitudes -->
 
