@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import domain.Academia;
@@ -67,6 +68,19 @@ public class AcademiaController extends AbstractController {
 		result = new ModelAndView("academia/list");
 		result.addObject("academias", academias);
 		result.addObject("requestURI", "academia/list.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public ModelAndView info(@RequestParam int academiaId) {
+		ModelAndView result;
+		Academia academia;
+
+		academia = this.academiaService.findOne(academiaId);
+
+		result = new ModelAndView("academia/info");
+		result.addObject("academia", academia);
 
 		return result;
 	}

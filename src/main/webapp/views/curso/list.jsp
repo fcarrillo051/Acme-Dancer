@@ -10,7 +10,8 @@
 
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+	
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
@@ -47,8 +48,13 @@
 	<display:column property="horaImpartido" title="${horaImpartidoHeader}"	sortable="true" />
 	
 	<spring:message code="academia.nombreComercial" var="academiaHeader" />
-	<display:column property="academia.nombreComercial" title="${academiaHeader}" sortable="true" />
-	
+    <display:column title="${academiaHeader}" sortable="true">
+        <c:url var="url" value="/academia/info.do">
+            <c:param name="academiaId" value="${row.academia.id}" />
+        </c:url>
+        <a href="${url}">${row.academia.nombreComercial}</a>
+    </display:column>
+    
 </display:table>
 
 
