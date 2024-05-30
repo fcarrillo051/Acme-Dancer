@@ -5,7 +5,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 <!-- Listing grid -->
@@ -38,11 +38,12 @@
 
     <display:column title="Cursos">
         <c:forEach var="curso" items="${row.cursos}">
-            ${curso.titulo} - ${curso.nivel}<br/>
+            <a href="<spring:url value='/curso/info.do?cursoId=${curso.id}' />">${curso.titulo} - ${curso.nivel}</a><br/>
         </c:forEach>
     </display:column>
     
 </display:table>
+
 
 
 

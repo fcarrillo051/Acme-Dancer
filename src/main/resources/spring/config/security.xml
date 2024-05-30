@@ -28,10 +28,14 @@
 		<security:intercept-url
 			pattern="/curso/list.do" access="permitAll" />
 		<security:intercept-url
+			pattern="/curso/info.do" access="permitAll" />
+		<security:intercept-url
 			pattern="/academia/list.do" access="permitAll" />
 		<security:intercept-url
+			pattern="/academia/info.do" access="permitAll" />
+		<security:intercept-url
 			pattern="/estilo/list.do" access="permitAll" />
-			
+
 		<security:intercept-url pattern="/favicon.ico"
 			access="permitAll" />
 		<security:intercept-url pattern="/images/**"

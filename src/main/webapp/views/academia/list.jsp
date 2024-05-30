@@ -6,9 +6,11 @@
     <display:column property="nombreComercial" title="Nombre Comercial"/>
     <display:column title="Cursos">
         <c:forEach var="curso" items="${row.cursos}">
-            ${curso.titulo} - ${curso.nivel}<br/>
+            <c:url var="url" value="/curso/info.do">
+                <c:param name="cursoId" value="${curso.id}" />
+            </c:url>
+            <a href="${url}">${curso.titulo} - ${curso.nivel}</a><br/>
         </c:forEach>
     </display:column>
 </display:table>
-
 

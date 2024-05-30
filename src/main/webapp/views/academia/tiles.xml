@@ -27,8 +27,13 @@
 	</definition>
 	
 	<definition name="academia/list" extends="master.page">	
-		<put-attribute name="title" value="Academia: List Academies" />
+		<put-attribute name="title" value="List Academies" />
 		<put-attribute name="body" value="/views/academia/list.jsp" />
 	</definition>
+	
+	<definition name="academia/info" extends="master.page">    
+        <put-attribute name="title" value="Academy Information" />
+        <put-attribute name="body" value="/views/academia/info.jsp" />
+    </definition>
 		
 </tiles-definitions>

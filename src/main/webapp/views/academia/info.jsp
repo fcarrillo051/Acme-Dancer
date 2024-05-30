@@ -3,13 +3,12 @@
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 
 <display:table pagesize="5" class="displaytag" keepStatus="true" name="academia" requestURI="${requestURI}" id="row">
-    <display:column property="nombreComercial" title="Nombre Comercial" />
+    <display:column title="Nombre Comercial">
+        ${row.nombreComercial}
+    </display:column>
     <display:column title="Cursos">
         <c:forEach var="curso" items="${row.cursos}">
-            ${curso.titulo} - ${curso.nivel}<br/>
+            <a href="<spring:url value='/curso/info.do?cursoId=${curso.id}' />">${curso.titulo} - ${curso.nivel}</a><br/>
         </c:forEach>
     </display:column>
 </display:table>
-
-<a href="<spring:url value='/curso/list.do' />">Volver a Listado de Cursos</a>
-
