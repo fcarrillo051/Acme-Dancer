@@ -21,4 +21,14 @@
 		<put-attribute name="body" value="/views/estilo/list.jsp" />
 	</definition>	
 		
+	<definition name="estilo/listCRUD" extends="master.page">
+		<put-attribute name="title" value="Edit Styles" />
+		<put-attribute name="body" value="/views/estilo/listCRUD.jsp" />
+	</definition>	
+	
+	<definition name="estilo/edit" extends="master.page">
+        <put-attribute name="title" value="Edit Style" />
+        <put-attribute name="body" value="/views/estilo/edit.jsp" />
+    </definition>
+		
 </tiles-definitions>
