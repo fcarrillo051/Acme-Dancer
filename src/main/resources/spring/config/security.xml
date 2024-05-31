@@ -62,6 +62,9 @@
 			pattern="/curso/administrator/**" access="hasRole('ADMIN')" />
 
 		<security:intercept-url
+			pattern="/estilo/administrator/**" access="hasRole('ADMIN')" />
+
+		<security:intercept-url
 			pattern="/academia/action-1.do" access="hasRole('ACADEMIA')" />
 		<security:intercept-url
 			pattern="/academia/action-2.do" access="hasRole('ACADEMIA')" />
