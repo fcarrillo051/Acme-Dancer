@@ -23,6 +23,15 @@
 			</li>
 		</security:authorize>
 		
+		<security:authorize access="hasRole('ALUMNO')">
+			<li><a class="fNiv"><spring:message	code="master.page.alumno" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="solicitud/alumno/list.do"><spring:message code="master.page.alumno.solicitudes" /></a></li>										
+					</ul>
+			</li>
+		</security:authorize>
+		
 		<security:authorize access="hasRole('ACADEMIA')">
 			<li><a class="fNiv"><spring:message	code="master.page.academia" /></a>
 				<ul>

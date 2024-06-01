@@ -1,8 +1,6 @@
 
 package controllers;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,16 +22,17 @@ public class ActorController extends AbstractController {
 		super();
 	}
 
-	@RequestMapping(value = "/save", method = RequestMethod.GET)
-	public ModelAndView list() {
+	//Actor ADD hh
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
 		ModelAndView result;
-		Collection<Actor> actores;
+		Actor actor;
 
-		actores = this.actorService.findAll();
+		actor = this.actorService.create();
 
-		result = new ModelAndView("estilo/list");
-		result.addObject("estilos", estilos);
-		result.addObject("requestURI", "estilo/list.do");
+		result = new ModelAndView("actor/create");
+		result.addObject("actor", actor);
+		result.addObject("requestURI", "actor/create.do");
 
 		return result;
 	}

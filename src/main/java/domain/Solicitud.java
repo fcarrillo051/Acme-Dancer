@@ -1,12 +1,14 @@
 
 package domain;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -56,9 +58,20 @@ public class Solicitud extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private Alumno	dueño;
-	private Curso	curso;
+	private Alumno					dueño;
+	private Curso					curso;
+	private Collection<Registro>	registros;
 
+
+	@NotNull
+	@OneToMany(mappedBy = "solicitud")
+	public Collection<Registro> getRegistros() {
+		return this.registros;
+	}
+
+	public void setRegistros(final Collection<Registro> registros) {
+		this.registros = registros;
+	}
 
 	@NotNull
 	@Valid
@@ -80,6 +93,17 @@ public class Solicitud extends DomainEntity {
 
 	public void setCurso(final Curso curso) {
 		this.curso = curso;
+	}
+
+	public void addRegistro(Registro registro) {
+		this.registros.add(registro);
+		registro.setSolicitud(this);
+
+	}
+
+	public void removeRegistro(Registro registro) {
+		this.registros.remove(registro);
+		registro.setSolicitud(null);
 	}
 
 }
