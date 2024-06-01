@@ -20,6 +20,7 @@ public class Alumno extends Actor {
 	public Alumno() {
 		super();
 		this.solicitudes = new HashSet<Solicitud>();
+		this.registros = new HashSet<Registro>();
 	}
 
 	// Attributes -------------------------------------------------------------
@@ -29,6 +30,7 @@ public class Alumno extends Actor {
 
 	private Collection<Solicitud>	solicitudes;
 	private TarjetaCredito			tarjetaCredito;
+	private Collection<Registro>	registros;
 
 
 	@NotNull
@@ -48,6 +50,25 @@ public class Alumno extends Actor {
 
 	public void setTarjetaCredito(final TarjetaCredito tarjetaCredito) {
 		this.tarjetaCredito = tarjetaCredito;
+	}
+	@NotNull
+	@OneToMany(mappedBy = "dueño")
+	public Collection<Registro> getRegistros() {
+		return this.registros;
+	}
+
+	public void setRegistros(Collection<Registro> registros) {
+		this.registros = registros;
+	}
+
+	public void addRegistro(Registro registro) {
+		this.registros.add(registro);
+		registro.setDueño(this);
+	}
+
+	public void removeRegistro(Registro registro) {
+		this.registros.remove(registro);
+		registro.setDueño(null);
 	}
 
 }

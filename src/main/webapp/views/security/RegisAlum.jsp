@@ -50,7 +50,5 @@
         </table>
     </form:form>
     
-
-    <a href="<spring:url value='/actor/save' />"><spring:message code="estilo.back.to.list" /></a>
 </body>
 </html>
