@@ -13,7 +13,7 @@ import domain.Academia;
 public class AcademiaToStringConverter implements Converter<Academia, String> {
 
 	@Override
-	public String convert(final Academia academia) {
+	public String convert(Academia academia) {
 		String result;
 		if (academia == null)
 			result = null;
