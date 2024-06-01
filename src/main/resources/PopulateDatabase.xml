@@ -10,6 +10,35 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	">
 
+
+<!-- Administrador -->
+
+	<bean id="admin1" class="domain.Administrador">
+		<property name="nombre" value="Administrador 1" />
+		<property name="apellidos" value="Apellidos Administrador 1" />
+		<property name="correoElectronico" value="admin@mail.com" />
+		<property name="numTelefono" value="Phone-1" />
+		<property name="codigoPostal" value="1" />
+		<property name="userAccount" ref="userAccount1" />
+	</bean>
+
+	<!-- Alumnos -->
+
+	<bean id="alumno1" class="domain.Alumno">
+		<property name="nombre" value="Alumno 1" />
+		<property name="apellidos" value="Apellidos Alumno 1" />
+		<property name="correoElectronico" value="alumno1@mail.com" />
+		<property name="numTelefono" value="Phone-1" />
+		<property name="codigoPostal" value="1" />
+		<property name="userAccount" ref="userAccount3" />
+		<property name="tarjetaCredito" ref="tarjetaCredito1" />
+		<property name="registros">
+			<list>
+				<ref bean="registro1" />
+			</list>
+		</property>
+	</bean>
+
 	<!-- User accounts -->
 
 	<bean id="userAccount1" class="security.UserAccount">
@@ -54,33 +83,7 @@
 
 	<!-- Other domain beans come here -->
 
-	<!-- Administrador -->
-
-	<bean id="admin1" class="domain.Administrador">
-		<property name="nombre" value="Administrador 1" />
-		<property name="apellidos" value="Apellidos Administrador 1" />
-		<property name="correoElectronico" value="admin@mail.com" />
-		<property name="numTelefono" value="Phone-1" />
-		<property name="codigoPostal" value="1" />
-		<property name="userAccount" ref="userAccount1" />
-	</bean>
-
-	<!-- Alumnos -->
-
-	<bean id="alumno1" class="domain.Alumno">
-		<property name="nombre" value="Alumno 1" />
-		<property name="apellidos" value="Apellidos Alumno 1" />
-		<property name="correoElectronico" value="alumno1@mail.com" />
-		<property name="numTelefono" value="Phone-1" />
-		<property name="codigoPostal" value="1" />
-		<property name="userAccount" ref="userAccount3" />
-		<property name="tarjetaCredito" ref="tarjetaCredito1" />
-		<property name="registros">
-			<list>
-				<ref bean="registro1" />
-			</list>
-		</property>
-	</bean>
+	
 
 	<!-- Registros -->
 	
