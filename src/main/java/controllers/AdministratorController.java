@@ -11,13 +11,23 @@
 
 package controllers;
 
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import services.CursoService;
 
 @Controller
 @RequestMapping("/administrator")
 public class AdministratorController extends AbstractController {
+
+	@Autowired
+	private CursoService cursoService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -52,6 +62,21 @@ public class AdministratorController extends AbstractController {
 		ModelAndView result;
 
 		result = new ModelAndView("administrator/action-3");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+	public ModelAndView dashboard() {
+		ModelAndView result;
+
+		Map<String, Double> statsCursosPorAcademia = this.cursoService.getStatsCursosPorAcademia();
+		Map<String, Double> statsSolicitudesPorCurso = this.cursoService.getStatsSolicitudesPorCurso();
+
+		result = new ModelAndView("administrator/dashboard");
+		result.addObject("statsCursosPorAcademia", statsCursosPorAcademia);
+		result.addObject("statsSolicitudesPorCurso", statsSolicitudesPorCurso);
+		result.addObject("requestURI", "administrator/dashboard.do");
 
 		return result;
 	}
