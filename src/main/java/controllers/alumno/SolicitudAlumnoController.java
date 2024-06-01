@@ -35,7 +35,7 @@ public class SolicitudAlumnoController extends AbstractController {
 		Collection<Solicitud> solicitudes;
 		Collection<Solicitud> solicitudesRegistradas;
 
-		solicitudes = this.solicitudService.findAllActive();
+		solicitudes = this.solicitudService.findAll();
 		solicitudesRegistradas = this.solicitudService.findRegistered();
 
 		result = new ModelAndView("solicitud/list");
