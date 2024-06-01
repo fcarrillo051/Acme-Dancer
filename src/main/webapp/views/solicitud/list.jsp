@@ -46,7 +46,7 @@
 		title="${estadoSolicitudHeader}" sortable="false" />
 
 	<spring:message code="solicitud.curso" var="cursoHeader" />
-	<display:column property="curso" title="${cursoHeader}" sortable="true"/>
+	<display:column property="curso" title="${cursoHeader}" sortable="false"/>
 		
 
 
