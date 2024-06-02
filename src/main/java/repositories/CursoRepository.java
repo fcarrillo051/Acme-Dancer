@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import domain.Curso;
 import domain.DiaImpartido;
+import domain.Estilo;
 import domain.Nivel;
 
 @Repository
@@ -32,5 +33,8 @@ public interface CursoRepository extends JpaRepository<Curso, Integer> {
 
 	@Query("select c from Curso c where c.horaImpartido = ?1")
 	Collection<Curso> findByhoraImpartida(Date horaImpartida);
+
+	@Query("select c from Curso c where c.estilo = ?1")
+	Collection<Curso> findByEstilo(Estilo estilo);
 
 }
