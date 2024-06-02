@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import domain.Academia;
 import domain.Curso;
+import domain.Estilo;
 import repositories.AcademiaRepository;
 import repositories.CursoRepository;
 
@@ -47,6 +48,10 @@ public class CursoService {
 
 	public void delete(Curso curso) {
 		this.cursoRepository.delete(curso);
+	}
+
+	public Collection<Curso> findByEstilo(Estilo estilo) {
+		return this.cursoRepository.findByEstilo(estilo);
 	}
 
 	// Other business methods ---------------------------

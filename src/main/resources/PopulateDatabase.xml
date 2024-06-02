@@ -204,5 +204,25 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="estilo2" class="domain.Estilo">
+		<property name="titulo" value="Titulo 2" />
+		<property name="descripcion" value="Estilo 2" />
+		<property name="cursos">
+			<list>
+				
+			</list>
+		</property>
+		<property name="videos">
+			<list>
+				<value>https://example.com/video2.mp4</value>
+			</list>
+		</property>
+		<property name="imagenes">
+			<list>
+				<value>https://example.com/imagen2.jpg</value>
+			</list>
+		</property>
+	</bean>
 
 </beans>
