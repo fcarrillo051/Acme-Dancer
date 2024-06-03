@@ -26,5 +26,10 @@
 		<put-attribute name="body" value="/views/curso/info.jsp" />
 	</definition>	
 	
+	<definition name="curso/listCRUD" extends="master.page">
+		<put-attribute name="title" value="Listar Cursos" />
+		<put-attribute name="body" value="/views/curso/listCRUD.jsp" />
+	</definition>	
+	
 		
 </tiles-definitions>

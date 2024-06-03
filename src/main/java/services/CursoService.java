@@ -11,12 +11,16 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import domain.Academia;
 import domain.Curso;
 import domain.Estilo;
 import repositories.AcademiaRepository;
 import repositories.CursoRepository;
+import security.Authority;
+import security.LoginService;
+import security.UserAccount;
 
 @Service
 @Transactional
@@ -92,6 +96,21 @@ public class CursoService {
 		stats.put("stddev", stddev);
 
 		return stats;
+	}
+
+	public Collection<Curso> findAllByAcademia() {
+		UserAccount userAccount = LoginService.getPrincipal();
+		Authority academiaAuthority = new Authority();
+		academiaAuthority.setAuthority(Authority.ACADEMIA);
+		Assert.isTrue(userAccount.getAuthorities().contains(academiaAuthority));
+
+		Academia academia = this.academiaRepository.findByUserAccountId(userAccount.getId());
+		Assert.notNull(academia);
+
+		Collection<Curso> result = this.cursoRepository.findAllByAcademia(academia.getId());
+		Assert.notNull(result);
+
+		return result;
 	}
 
 }
