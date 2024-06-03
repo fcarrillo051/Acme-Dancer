@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import domain.Academia;
+import domain.Curso;
 import repositories.AcademiaRepository;
 
 @Service
@@ -36,6 +37,10 @@ public class AcademiaService {
 	public void delete(Academia academia) {
 
 		this.academiaRepository.delete(academia);
+	}
+
+	public Collection<Academia> findByCurso(Curso curso) {
+		return this.academiaRepository.findByCurso(curso);
 	}
 
 	// Other business methods ---------------------------
