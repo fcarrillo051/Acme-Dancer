@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
-import domain.Academia;
 import domain.Curso;
+import domain.Estilo;
 import services.AcademiaService;
 import services.CursoService;
+import services.EstiloService;
 
 @Controller
 @RequestMapping("/curso/academia")
@@ -26,6 +27,10 @@ public class CursoAcademiaController extends AbstractController {
 
 	@Autowired
 	private AcademiaService	academiaService;
+
+	@Autowired
+	private EstiloService	estilosService;
+
 	@Autowired
 	private CursoService	cursoService;
 
@@ -61,6 +66,8 @@ public class CursoAcademiaController extends AbstractController {
 		curso = this.cursoService.create();
 		result = new ModelAndView("curso/add");
 		result.addObject("curso", curso);
+		result.addObject("estilos", this.estilosService.findAll());
+		result.addObject("academias", this.academiaService.findAll());
 		result.addObject("requestURI", "curso/academia/add.do");
 
 		return result;
@@ -96,12 +103,13 @@ public class CursoAcademiaController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Curso curso, final String message) {
 		ModelAndView result;
 
-		Collection<Academia> academias;
-		academias = this.academiaService.findAll();
+		Collection<Estilo> estilos;
+		estilos = this.estilosService.findAll();
 
 		result = new ModelAndView("curso/add");
 		result.addObject("curso", curso);
-		result.addObject("academias", academias);
+		result.addObject("estilos", estilos);
+		result.addObject("academias", this.academiaService.findAll());
 		result.addObject("message", message);
 
 		return result;

@@ -50,11 +50,29 @@
 	<form:errors cssClass="error" path="horaImpartido" />
 	<br />
 
+	<div class="form-group" style="width: 55%;">
+		<label for="estilo"><spring:message code="curso.estilo" />:</label> <select
+			id="estilo" name="estilo">
+			<c:forEach var="s" items="${estilos}">
+				<option value="${s.id}">${s.titulo}</option>
+			</c:forEach>
+		</select>
+	</div>
+	
+		<div class="form-group" style="width: 55%;">
+		<label for="academia"><spring:message code="curso.academia" />:</label> <select
+			id="estilo" name="academia">
+			<c:forEach var="s" items="${academias}">
+				<option value="${s.id}">${s.nombreComercial}</option>
+			</c:forEach>
+		</select>
+	</div>
+
 	<input type="submit" name="save"
 		value="<spring:message code="curso.save" />" />&nbsp; 
     
-    <a href="<spring:url value='/curso/academia/listCRUD.do' />">
-		<input type="button" name="cancel"
+    <a href="<spring:url value='/curso/academia/listCRUD.do' />"> <input
+		type="button" name="cancel"
 		value="<spring:message code="curso.cancel" />" />
 	</a>
 
