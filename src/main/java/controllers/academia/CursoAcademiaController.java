@@ -25,9 +25,10 @@ public class CursoAcademiaController extends AbstractController {
 	// Services ---------------------------------------------------------------
 
 	@Autowired
-	private AcademiaService academiaService;
+	private AcademiaService	academiaService;
 	@Autowired
-	private CursoService cursoService;
+	private CursoService	cursoService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -98,7 +99,7 @@ public class CursoAcademiaController extends AbstractController {
 		Collection<Academia> academias;
 		academias = this.academiaService.findAll();
 
-		result = new ModelAndView("curso/edit");
+		result = new ModelAndView("curso/add");
 		result.addObject("curso", curso);
 		result.addObject("academias", academias);
 		result.addObject("message", message);

@@ -4,6 +4,9 @@
 
 <!-- Listing grid -->
 
+<p><a href="<spring:url value='/curso/academia/add.do' />"><spring:message code="curso.AddCurso" /></a></p>
+
+
 <display:table pagesize="5" class="displaytag" keepStatus="true"
     name="cursos" requestURI="${requestURI}" id="row">
 
