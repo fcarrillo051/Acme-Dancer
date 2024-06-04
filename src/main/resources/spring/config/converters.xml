@@ -18,10 +18,23 @@
 	">
 
 	<util:list id="converters">
-		<!-- 
-			Add your own converters using entries of the following form: 
-			<bean class="converters.Class1ToClass2" /> 
-		-->
+		<bean class="converters.AcademiaToStringConverter"/>
+		<bean class="converters.StringToAcademiaConverter"/>
+		
+		<bean class="converters.AdministradorToStringConverter"/>
+		<bean class="converters.StringToAdministradorConverter"/>
+		
+		<bean class="converters.AlumnoToStringConverter"/>
+		<bean class="converters.StringToAlumnoConverter"/>
+		
+		<bean class="converters.CursoToStringConverter"/>
+		<bean class="converters.StringToCursoConverter"/>
+		
+		<bean class="converters.EstiloToStringConverter"/>
+		<bean class="converters.StringToEstiloConverter"/>
+		
+		<bean class="converters.SolicitudToStringConverter"/>
+		<bean class="converters.StringToSolicitudConverter"/>
 	</util:list>
 	
 </beans>

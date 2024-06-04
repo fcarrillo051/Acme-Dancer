@@ -8,6 +8,8 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net"%>
 
+<p><a href="/estilo/administrator/add.do" class="button"><spring:message code="estilo.AddStyles" /></a></p>
+
 <!-- Listing grid -->
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"

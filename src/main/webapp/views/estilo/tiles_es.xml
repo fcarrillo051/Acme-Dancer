@@ -24,7 +24,12 @@
 	<definition name="estilo/listCRUD" extends="master.page">
 		<put-attribute name="title" value="Editar Estilos" />
 		<put-attribute name="body" value="/views/estilo/listCRUD.jsp" />
-	</definition>	
+	</definition>
+	
+	<definition name="estilo/add" extends="master.page">
+        <put-attribute name="title" value="Añadir Estilo" />
+        <put-attribute name="body" value="/views/estilo/add.jsp" />
+    </definition>	
 		
 	<definition name="estilo/edit" extends="master.page">
         <put-attribute name="title" value="Editar Estilo" />

@@ -2,6 +2,8 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
+
+<p><a href="<spring:url value='/estilo/administrator/add.do' />"><spring:message code="estilo.AddStyles" /></a></p>
 <!-- Listing grid -->
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"

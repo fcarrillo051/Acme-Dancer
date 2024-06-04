@@ -75,11 +75,19 @@
 		<property name="codigoPostal" value="1" />
 		<property name="userAccount" ref="userAccount3" />
 		<property name="tarjetaCredito" ref="tarjetaCredito1" />
-		<property name="solicitudes">
+		<property name="registros">
 			<list>
-				<ref bean="solicitud1" />
+				<ref bean="registro1" />
 			</list>
 		</property>
+	</bean>
+
+	<!-- Registros -->
+	
+	<bean id="registro1" class="domain.Registro">
+		<property name="momentoRegistro" value="01/31/2015 12:00" />
+		<property name="dueño" ref="alumno1" />
+		<property name="solicitud" ref="solicitud1" />	
 	</bean>
 
 	<!-- Tarjetas de Credito -->
@@ -143,7 +151,7 @@
 		<property name="estilo" ref="estilo1" />
 		<property name="academia" ref="academia1" />
 	</bean>
-	
+
 	<bean id="curso2" class="domain.Curso">
 		<property name="titulo" value="Curso 2" />
 		<property name="nivel" value="Principiante" />
@@ -159,15 +167,20 @@
 		<property name="estilo" ref="estilo1" />
 		<property name="academia" ref="academia1" />
 	</bean>
-	
+
 
 	<!-- Solicitudes -->
 
 	<bean id="solicitud1" class="domain.Solicitud">
 		<property name="momentoSolicitud" value="01/31/2015 12:00" />
-		<property name="estadoSolicitud" value="Pendiente"/>
+		<property name="estadoSolicitud" value="Pendiente" />
 		<property name="dueño" ref="alumno1" />
 		<property name="curso" ref="curso1" />
+		<property name="registros">
+			<list>
+				<ref bean="registro1" />				
+			</list>
+		</property>
 	</bean>
 
 	<!-- Estilos -->
@@ -188,6 +201,26 @@
 		<property name="imagenes">
 			<list>
 				<value>https://example.com/imagen1.jpg</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="estilo2" class="domain.Estilo">
+		<property name="titulo" value="Titulo 2" />
+		<property name="descripcion" value="Estilo 2" />
+		<property name="cursos">
+			<list>
+				
+			</list>
+		</property>
+		<property name="videos">
+			<list>
+				<value>https://example.com/video2.mp4</value>
+			</list>
+		</property>
+		<property name="imagenes">
+			<list>
+				<value>https://example.com/imagen2.jpg</value>
 			</list>
 		</property>
 	</bean>

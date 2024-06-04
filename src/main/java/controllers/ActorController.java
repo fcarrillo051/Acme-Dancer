@@ -32,7 +32,10 @@ public class ActorController extends AbstractController {
 
 		result = new ModelAndView("actor/create");
 		result.addObject("actor", actor);
+
 		result.addObject("requestURI", "estilo/list.do");
+
+		result.addObject("requestURI", "actor/create.do");
 
 		return result;
 	}
