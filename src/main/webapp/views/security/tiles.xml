@@ -16,10 +16,9 @@
 			value="/views/security/login.jsp" />
 	</definition>
 
-	<definition name="actor/create" extends="master.page">
-		<put-attribute name="title" value="Sign In" />
-		<put-attribute name="body"
-			value="/views/security/RegisAlum.jsp" />
+	<definition name="security/register" extends="master.page">
+		<put-attribute name="title" value="Register" />
+		<put-attribute name="body" value="/views/security/register.jsp" />
 	</definition>
 
 </tiles-definitions>

@@ -39,7 +39,5 @@
 	</jstl:if>
 	
 	<input type="submit" value="<spring:message code="security.login" />" />
-	<a href="/actor/create.do" class="button"><spring:message code="security.RegistrarAlumno" /></a>
-	<a href="#" class="button"><spring:message code="security.RegistrarAcademia" /></a>
 	
 </form:form>

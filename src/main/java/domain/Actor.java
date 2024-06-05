@@ -1,7 +1,13 @@
 
 package domain;
 
-import javax.persistence.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -29,7 +35,7 @@ public abstract class Actor extends DomainEntity {
 	private String	apellidos;
 	private String	correoElectronico;
 	private String	numTelefono;
-	private Integer	codigoPostal;
+	private String	codigoPostal;
 
 
 	@NotBlank
@@ -68,11 +74,11 @@ public abstract class Actor extends DomainEntity {
 		this.numTelefono = numTelefono;
 	}
 
-	public Integer getCodigoPostal() {
+	public String getCodigoPostal() {
 		return this.codigoPostal;
 	}
 
-	public void setCodigoPostal(final Integer codigoPostal) {
+	public void setCodigoPostal(final String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
 
