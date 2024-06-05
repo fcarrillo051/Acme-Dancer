@@ -27,6 +27,8 @@
 	
 	<!-- Action links -->
 	
+	<p><a href="<spring:url value='/solicitud/alumno/add.do' />"><spring:message code="alumno.AddSolicitud" /></a></p>
+	
 	<!-- Attributes -->
 
 	<spring:message code="curso.titulo" var="tituloHeader" />

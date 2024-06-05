@@ -98,8 +98,7 @@
 			<li><a class="fNiv" href="academia/list.do"><spring:message
 						code="master.page.academias" /></a></li>
 			<li><a class="fNiv" href="estilo/list.do"><spring:message
-						code="master.page.estilos" /></a></li>
-			</li>
+						code="master.page.estilos" /></a></li>			
 		</security:authorize>
 	</ul>
 </div>
