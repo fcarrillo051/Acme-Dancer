@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!-- 
- * tiles_es.xml
+ * tiles.xml
  *
  * Copyright (C) 2018 Universidad de Sevilla
- *
+ * 
  * The use of this project is hereby constrained to the conditions of the 
  * TDG Licence, a copy of which you may download from 
  * http://www.tdg-seville.info/License.html
@@ -13,19 +13,17 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
-       
+      
 <tiles-definitions>
 
-	<definition name="security/login" extends="master.page">
-		<put-attribute name="title" value="Entrada en el sistema" />
-		<put-attribute name="body" value="/views/security/login.jsp" />
+	<definition name="alumno/edit" extends="master.page">	
+		<put-attribute name="title" value="Edit Alumn" />
+		<put-attribute name="body" value="/views/alumno/edit.jsp" />
 	</definition>
 	
-	<definition name="security/register" extends="master.page">
-		<put-attribute name="title" value="Registrarse en el sistema" />
-		<put-attribute name="body" value="/views/security/register.jsp" />
+	<definition name="alumno/action-2" extends="master.page">	
+		<put-attribute name="title" value="Alumn: Acción 2" />
+		<put-attribute name="body" value="/views/alumno/action-2.jsp" />
 	</definition>
 	
-	
-		
 </tiles-definitions>

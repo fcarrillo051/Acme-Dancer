@@ -77,17 +77,29 @@
 			</a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="profile/action-1.do"><spring:message
+					<security:authorize access="hasRole('ACADEMIA')">
+						<li><a href="profile/action-2.do"><spring:message
 								code="master.page.profile.action.1" /></a></li>
-					<li><a href="profile/action-2.do"><spring:message
-								code="master.page.profile.action.2" /></a></li>
-					<li><a href="profile/action-3.do"><spring:message
-								code="master.page.profile.action.3" /></a></li>
-					<li><a href="profile/action-3.do"><spring:message
+								
+					</security:authorize>
+					<security:authorize access="hasRole('ALUMNO')">
+						<li><a href="profile/edit.do"><spring:message
 								code="master.page.profile.edit" /></a></li>
+						<li><a href="alumno/edit.do"><spring:message
+								code="master.page.alumno.tarjeta" /></a></li>
+					</security:authorize>
+					
 					<li><a href="j_spring_security_logout"><spring:message
 								code="master.page.logout" /> </a></li>
 				</ul></li>
+				
+				<li><a class="fNiv" href="curso/list.do"><spring:message
+						code="master.page.cursos" /></a></li>
+			<li><a class="fNiv" href="academia/list.do"><spring:message
+						code="master.page.academias" /></a></li>
+			<li><a class="fNiv" href="estilo/list.do"><spring:message
+						code="master.page.estilos" /></a></li>
+			</li>
 		</security:authorize>
 	</ul>
 </div>

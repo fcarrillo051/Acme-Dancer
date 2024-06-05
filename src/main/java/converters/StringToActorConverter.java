@@ -1,3 +1,12 @@
+/*
+ * StringToActoresConverter.java
+ *
+ * Copyright (C) 2017 Universidad de Sevilla
+ *
+ * The use of this project is hereby constrained to the conditions of the
+ * TDG Licence, a copy of which you may download from
+ * http://www.tdg-seville.info/License.html
+ */
 
 package converters;
 
@@ -14,7 +23,7 @@ import repositories.ActorRepository;
 public class StringToActorConverter implements Converter<String, Actor> {
 
 	@Autowired
-	ActorRepository actorRepository;
+	ActorRepository actoresRepository;
 
 
 	@Override
@@ -24,7 +33,7 @@ public class StringToActorConverter implements Converter<String, Actor> {
 
 		try {
 			id = Integer.valueOf(text);
-			result = this.actorRepository.findOne(id);
+			result = this.actoresRepository.findOne(id);
 		} catch (final Throwable oops) {
 			throw new IllegalArgumentException(oops);
 		}

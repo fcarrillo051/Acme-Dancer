@@ -12,7 +12,9 @@ import org.springframework.util.Assert;
 import domain.Alumno;
 import domain.Registro;
 import domain.Solicitud;
+import domain.TarjetaCredito;
 import repositories.AlumnoRepository;
+import repositories.TarjetaCreditoRepository;
 import security.LoginService;
 import security.UserAccount;
 
@@ -22,13 +24,16 @@ public class AlumnoService {
 
 	// Managed repository -------------------------------
 	@Autowired
-	private AlumnoRepository	alumnoRepository;
+	private AlumnoRepository			alumnoRepository;
 
 	@Autowired
-	private SolicitudService	solicitudService;
+	private TarjetaCreditoRepository	tarjetaRepository;
 
 	@Autowired
-	private RegistroService		registroService;
+	private SolicitudService			solicitudService;
+
+	@Autowired
+	private RegistroService				registroService;
 
 
 	// Simple CRUD methods ------------------------------
@@ -123,5 +128,22 @@ public class AlumnoService {
 		this.registroService.delete(registro);
 	}
 
+	public TarjetaCredito findTarjetaOne(int alumnoId) {
+		TarjetaCredito result;
+
+		result = this.alumnoRepository.findTarjetaByUserAccountId(alumnoId);
+
+		return result;
+	}
+
+	public TarjetaCredito saveTarjeta(TarjetaCredito tarjeta) {
+		Assert.notNull(tarjeta);
+
+		TarjetaCredito result;
+
+		result = this.tarjetaRepository.save(tarjeta);
+
+		return result;
+	}
 	// Other business methods ---------------------------
 }

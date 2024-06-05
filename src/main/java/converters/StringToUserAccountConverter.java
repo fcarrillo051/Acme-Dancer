@@ -15,25 +15,25 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import repositories.AcademiaRepository;
-import domain.Academia;
+import security.UserAccount;
+import security.UserAccountRepository;
 
 @Component
 @Transactional
-public class StringToAcademiaConverter implements Converter<String, Academia> {
+public class StringToUserAccountConverter implements Converter<String, UserAccount> {
 
 	@Autowired
-	AcademiaRepository	academiaRepository;
+	UserAccountRepository	userAccountRepository;
 
 
 	@Override
-	public Academia convert(final String text) {
-		Academia result;
+	public UserAccount convert(final String text) {
+		UserAccount result;
 		int id;
 
 		try {
 			id = Integer.valueOf(text);
-			result = this.academiaRepository.findOne(id);
+			result = this.userAccountRepository.findOne(id);
 		} catch (final Throwable oops) {
 			throw new IllegalArgumentException(oops);
 		}

@@ -35,6 +35,10 @@
 		
 		<bean class="converters.SolicitudToStringConverter"/>
 		<bean class="converters.StringToSolicitudConverter"/>
+		
+		<bean class="converters.StringToUserAccountConverter" />
+		<bean class="converters.UserAccountToStringConverter" />
+		
 	</util:list>
 	
 </beans>

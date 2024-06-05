@@ -28,6 +28,7 @@
 		<value>/views/estilo/messages</value>
 		<value>/views/academia/messages</value>
 		<value>/views/profile/messages</value>
+		<value>/views/alumno/messages</value>
 		<value>/views/solicitud/messages</value>
 	</util:list>
 

@@ -68,6 +68,7 @@
 		<security:intercept-url
 			pattern="/solicitud/alumno/**" access="hasRole('ALUMNO')" />
 
+
 		<security:intercept-url pattern="/solicitud/**"
 			access="hasRole('ALUMNO')" />
 
@@ -85,7 +86,10 @@
 		<security:intercept-url
 			pattern="/profile/action-2.do" access="isAuthenticated()" />
 		<security:intercept-url
-			pattern="/profile/action-3.do" access="isAuthenticated()" />
+			pattern="/profile/edit.do" access="isAuthenticated()" />
+			
+		<security:intercept-url
+			pattern="/alumno/edit.do" access="isAuthenticated()" />
 
 		<security:intercept-url pattern="/**"
 			access="hasRole('NONE')" />

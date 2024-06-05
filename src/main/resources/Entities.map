@@ -1,16 +1,16 @@
 #./src/main/resources/Entities.map
-#Wed Jun 05 12:14:56 CEST 2024
-tarjetaCredito1=64
-admin1=62
-registro1=72
-tutorial1=66
-academia1=65
-alumno1=63
-solicitud1=71
-estilo2=68
-estilo1=67
-curso2=70
-curso1=69
-userAccount3=61
-userAccount2=60
-userAccount1=59
+#Wed Jun 05 15:29:06 CEST 2024
+tarjetaCredito1=65
+admin1=63
+registro1=73
+tutorial1=67
+academia1=66
+alumno1=64
+solicitud1=72
+estilo2=69
+estilo1=68
+curso2=71
+curso1=70
+userAccount3=62
+userAccount2=61
+userAccount1=60

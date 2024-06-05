@@ -6,7 +6,9 @@ import java.util.HashSet;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -43,7 +45,8 @@ public class Alumno extends Actor {
 		this.solicitudes = solicitudes;
 	}
 
-	@OneToOne(mappedBy = "alumno")
+	@OneToOne(optional = true, cascade = CascadeType.ALL)
+	@JoinColumn(name = "tarjetaCredito_id")  // Explicitly specify the column name
 	public TarjetaCredito getTarjetaCredito() {
 		return this.tarjetaCredito;
 	}
@@ -51,6 +54,7 @@ public class Alumno extends Actor {
 	public void setTarjetaCredito(final TarjetaCredito tarjetaCredito) {
 		this.tarjetaCredito = tarjetaCredito;
 	}
+
 	@NotNull
 	@OneToMany(mappedBy = "dueño")
 	public Collection<Registro> getRegistros() {
@@ -70,5 +74,4 @@ public class Alumno extends Actor {
 		this.registros.remove(registro);
 		registro.setDueño(null);
 	}
-
 }

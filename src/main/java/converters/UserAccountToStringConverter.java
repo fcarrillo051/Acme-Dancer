@@ -1,5 +1,5 @@
 /*
- * AlumnoToStringConverter.java
+ * AcademiaToStringConverter.java
  * 
  * Copyright (C) 2017 Universidad de Sevilla
  * 
@@ -14,20 +14,20 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import domain.Alumno;
+import security.UserAccount;
 
 @Component
 @Transactional
-public class AlumnoToStringConverter implements Converter<Alumno, String> {
+public class UserAccountToStringConverter implements Converter<UserAccount, String> {
 
 	@Override
-	public String convert(final Alumno alumno) {
+	public String convert(final UserAccount userAccount) {
 		String result;
 
-		if (alumno == null)
+		if (userAccount == null)
 			result = null;
 		else
-			result = String.valueOf(alumno.getId());
+			result = String.valueOf(userAccount.getId());
 
 		return result;
 	}
