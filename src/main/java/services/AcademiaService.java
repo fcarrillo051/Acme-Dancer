@@ -6,10 +6,13 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import domain.Academia;
 import domain.Curso;
 import repositories.AcademiaRepository;
+import security.LoginService;
+import security.UserAccount;
 
 @Service
 @Transactional
@@ -45,4 +48,24 @@ public class AcademiaService {
 
 	// Other business methods ---------------------------
 
+	public Academia findByPrincipal() {
+		Academia result;
+		UserAccount userAccount;
+
+		userAccount = LoginService.getPrincipal();
+		Assert.notNull(userAccount);
+		result = this.findByUserAccount(userAccount);
+		Assert.notNull(result);
+
+		return result;
+	}
+	public Academia findByUserAccount(final UserAccount userAccount) {
+		Assert.notNull(userAccount);
+
+		Academia result;
+
+		result = this.academiaRepository.findByUserAccountId(userAccount.getId());
+
+		return result;
+	}
 }

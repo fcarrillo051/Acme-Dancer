@@ -11,14 +11,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import domain.Curso;
+import domain.Solicitud;
 import services.CursoService;
+import services.SolicitudService;
 
 @Controller
 @RequestMapping("/curso")
 public class CursoController extends AbstractController {
 
 	@Autowired
-	private CursoService cursoService;
+	private CursoService		cursoService;
+	@Autowired
+	private SolicitudService	solicitudService;
 
 
 	public CursoController() {
@@ -50,5 +54,22 @@ public class CursoController extends AbstractController {
 		result.addObject("curso", curso);
 
 		return result;
+	}
+
+	@RequestMapping(value = "/solicitar", method = RequestMethod.POST)
+	public ModelAndView solicitar(@RequestParam final int cursoId) {
+		ModelAndView result;
+		Curso curso;
+
+		curso = this.cursoService.findOne(cursoId);
+		if (this.solicitudService.findByAlumnoAndCurso(curso) == null) {
+
+			Solicitud sol = this.solicitudService.createSolicitud(curso);
+			this.solicitudService.save(sol);
+			result = new ModelAndView("redirect:/solicitud/list-alumn.do");
+
+			return result;
+		}
+		return null;
 	}
 }

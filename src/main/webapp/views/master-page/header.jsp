@@ -17,10 +17,6 @@
 						code="master.page.administrator" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="administrator/action-1.do"><spring:message
-								code="master.page.administrator.action.1" /></a></li>
-					<li><a href="administrator/action-2.do"><spring:message
-								code="master.page.administrator.action.2" /></a></li>
 					<li><a href="curso/administrator/list.do"><spring:message
 								code="master.page.administrator.cursos" /></a></li>
 					<li><a href="estilo/administrator/listCRUD.do"><spring:message
@@ -35,8 +31,10 @@
 						code="master.page.alumno" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="solicitud/alumno/list.do"><spring:message
-								code="master.page.alumno.solicitudes" /></a></li>
+					<li><a href="curso/list.do"><spring:message
+								code="master.page.alumno.action.1" /></a></li>
+								<li><a href="solicitud/list-alumn.do"><spring:message
+								code="master.page.alumno.action.2" /></a></li>
 				</ul></li>
 		</security:authorize>
 
@@ -45,9 +43,7 @@
 						code="master.page.academia" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="academia/action-1.do"><spring:message
-								code="master.page.academia.action.1" /></a></li>
-					<li><a href="academia/action-2.do"><spring:message
+					<li><a href="solicitud/list-academy.do"><spring:message
 								code="master.page.academia.action.2" /></a></li>
 					<li><a href="curso/academia/listCRUD.do"><spring:message
 								code="master.page.academia.cursos" /></a></li>
@@ -78,15 +74,11 @@
 				<ul>
 					<li class="arrow"></li>
 					<security:authorize access="hasRole('ACADEMIA')">
-						<li><a href="profile/action-2.do"><spring:message
-								code="master.page.profile.action.1" /></a></li>
 								
 					</security:authorize>
 					<security:authorize access="hasRole('ALUMNO')">
 						<li><a href="profile/edit.do"><spring:message
 								code="master.page.profile.edit" /></a></li>
-						<li><a href="alumno/edit.do"><spring:message
-								code="master.page.alumno.tarjeta" /></a></li>
 					</security:authorize>
 					
 					<li><a href="j_spring_security_logout"><spring:message

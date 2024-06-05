@@ -67,6 +67,18 @@
 
 		<security:intercept-url
 			pattern="/solicitud/alumno/**" access="hasRole('ALUMNO')" />
+			
+			<security:intercept-url
+			pattern="/solicitud/list-academy.do" access="hasRole('ACADEMIA')" />
+			
+				<security:intercept-url
+			pattern="/solicitud/aceptar.do" access="hasRole('ACADEMIA')" />
+			
+				<security:intercept-url
+			pattern="/solicitud/rechazar.do" access="hasRole('ACADEMIA')" />
+			
+			<security:intercept-url
+			pattern="/curso/solicitar.do" access="hasRole('ALUMNO')" />
 
 
 		<security:intercept-url pattern="/solicitud/**"
@@ -90,6 +102,9 @@
 			
 		<security:intercept-url
 			pattern="/alumno/edit.do" access="isAuthenticated()" />
+			
+			<security:intercept-url
+			pattern="/alumno/solicitar.do" access="isAuthenticated()" />
 
 		<security:intercept-url pattern="/**"
 			access="hasRole('NONE')" />

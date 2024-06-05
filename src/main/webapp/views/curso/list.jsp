@@ -27,10 +27,22 @@
 	
 	<!-- Action links -->
 	
-	<p><a href="<spring:url value='/solicitud/alumno/add.do' />"><spring:message code="alumno.AddSolicitud" /></a></p>
+
 	
 	<!-- Attributes -->
 
+<display:column>
+
+			<security:authorize access="hasRole('ALUMNO')">
+	            <form action="curso/solicitar.do" method="post" style="display:inline;">
+	                <input type="hidden" name="cursoId" value="${row.id}" />
+	                <button type="submit">
+	                    <spring:message code="curso.solicitar" />
+	                </button>
+	            </form>
+        	</security:authorize>
+		</display:column>
+        	
 	<spring:message code="curso.titulo" var="tituloHeader" />
 	<display:column property="titulo" title="${tituloHeader}" sortable="true" />
 

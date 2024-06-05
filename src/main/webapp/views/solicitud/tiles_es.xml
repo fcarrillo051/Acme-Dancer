@@ -22,6 +22,14 @@
 		<put-attribute name="body" value="/views/solicitud/list.jsp" />
 	</definition>
 	
+		<definition name="solicitud/list-alumn" extends="master.page">	
+		<put-attribute name="title" value="Lista de solicitudes de Alumno" />
+		<put-attribute name="body" value="/views/solicitud/list-alumn.jsp" />
+	</definition>
 	
+	<definition name="solicitud/list-academy" extends="master.page">	
+		<put-attribute name="title" value="Lista de solicitudes de Academia" />
+		<put-attribute name="body" value="/views/solicitud/list-academy.jsp" />
+	</definition>
 
 </tiles-definitions>

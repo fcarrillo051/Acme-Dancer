@@ -1,6 +1,7 @@
 
 package domain;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -25,6 +26,7 @@ public class Solicitud extends DomainEntity {
 
 	public Solicitud() {
 		super();
+		this.registros = new ArrayList<>();
 	}
 
 
