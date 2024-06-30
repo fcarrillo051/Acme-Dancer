@@ -26,6 +26,16 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="tutoriales" requestURI="${requestURI}" id="row">
 
+	<!-- Edit Button -->
+	<spring:message code="tutorial.editar" var="editMessage" />
+	<display:column title="${editMessage}">
+		<a href="<c:url value='/tutorial/academia/edit.do'>
+            <c:param name='tutorialId' value='${row.id}' />
+        </c:url>">
+            <spring:message code="tutorial.editar"/>
+        </a>
+    </display:column>
+
 	<!-- Attributes -->
 
 	<spring:message code="tutorial.titulo"
@@ -36,7 +46,8 @@
 		var="descripcion" />
 	<display:column property="descripcion" title="${descripcion}" sortable="true"/>
 	
-	<spring:message code="tutorial.video" var="video" />
+	<spring:message code="tutorial.video"
+		var="video" />
 	<display:column property="video" title="${video}" sortable="true"/>
 		
 
