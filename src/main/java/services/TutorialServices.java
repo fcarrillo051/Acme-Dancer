@@ -41,4 +41,8 @@ public class TutorialServices {
 	}
 
 	// Other business methods ---------------------------
+
+	public Collection<Tutorial> findByAcademia(int academiaId) {
+		return this.tutorialRepository.findByAcademia(academiaId);
+	}
 }

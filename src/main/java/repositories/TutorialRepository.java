@@ -19,7 +19,7 @@ public interface TutorialRepository extends JpaRepository<Tutorial, Integer> {
 	@Query("select e from Tutorial e where e.video = ?1")
 	Collection<Tutorial> findByVideo(String video);
 
-	@Query("select e from Tutorial e where e.visitas = ?1")
-	Collection<Tutorial> findByVisitas(Integer visitas);
+	@Query("select e from Tutorial e where academia_id = ?1")
+	Collection<Tutorial> findByAcademia(int academiaId);
 
 }

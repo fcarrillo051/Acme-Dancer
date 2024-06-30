@@ -33,7 +33,7 @@
 					<li class="arrow"></li>
 					<li><a href="curso/list.do"><spring:message
 								code="master.page.alumno.action.1" /></a></li>
-								<li><a href="solicitud/list-alumn.do"><spring:message
+					<li><a href="solicitud/list-alumn.do"><spring:message
 								code="master.page.alumno.action.2" /></a></li>
 				</ul></li>
 		</security:authorize>
@@ -47,6 +47,8 @@
 								code="master.page.academia.action.2" /></a></li>
 					<li><a href="curso/academia/listCRUD.do"><spring:message
 								code="master.page.academia.cursos" /></a></li>
+					<li><a href="tutorial/academia/list.do"><spring:message
+								code="master.page.academia.tutoriales" /></a></li>
 
 				</ul></li>
 		</security:authorize>
@@ -56,7 +58,7 @@
 						code="master.page.login" /></a></li>
 			<li><a class="fNiv" href="security/register.do"><spring:message
 						code="master.page.register" /></a></li>
-			
+
 			<li><a class="fNiv" href="curso/list.do"><spring:message
 						code="master.page.cursos" /></a></li>
 			<li><a class="fNiv" href="academia/list.do"><spring:message
@@ -74,23 +76,23 @@
 				<ul>
 					<li class="arrow"></li>
 					<security:authorize access="hasRole('ACADEMIA')">
-								
+
 					</security:authorize>
 					<security:authorize access="hasRole('ALUMNO')">
 						<li><a href="profile/edit.do"><spring:message
-								code="master.page.profile.edit" /></a></li>
+									code="master.page.profile.edit" /></a></li>
 					</security:authorize>
-					
+
 					<li><a href="j_spring_security_logout"><spring:message
 								code="master.page.logout" /> </a></li>
 				</ul></li>
-				
-				<li><a class="fNiv" href="curso/list.do"><spring:message
+
+			<li><a class="fNiv" href="curso/list.do"><spring:message
 						code="master.page.cursos" /></a></li>
 			<li><a class="fNiv" href="academia/list.do"><spring:message
 						code="master.page.academias" /></a></li>
 			<li><a class="fNiv" href="estilo/list.do"><spring:message
-						code="master.page.estilos" /></a></li>			
+						code="master.page.estilos" /></a></li>
 		</security:authorize>
 	</ul>
 </div>

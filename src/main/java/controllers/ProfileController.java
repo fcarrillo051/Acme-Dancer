@@ -26,15 +26,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import domain.Alumno;
 import security.RegisterService;
-import services.AcademiaService;
 import services.AlumnoService;
 
 @Controller
 @RequestMapping("/profile")
 public class ProfileController extends AbstractController {
 
-	@Autowired
-	private AcademiaService	academiaService;
 	@Autowired
 	private AlumnoService	alumnoService;
 	@Autowired

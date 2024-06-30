@@ -27,7 +27,6 @@ public class Tutorial extends DomainEntity {
 	private String	titulo;
 	private String	descripcion;
 	private String	video;
-	private Integer	visitas;
 
 
 	@NotBlank
@@ -55,14 +54,6 @@ public class Tutorial extends DomainEntity {
 
 	public void setVideo(final String video) {
 		this.video = video;
-	}
-
-	public Integer getVisitas() {
-		return this.visitas;
-	}
-
-	public void setVisitas(final Integer visitas) {
-		this.visitas = visitas;
 	}
 
 

@@ -129,7 +129,6 @@
 	<bean id="tutorial1" class="domain.Tutorial">
 		<property name="titulo" value="Titulo 1" />
 		<property name="descripcion" value="Estilo 1" />
-		<property name="visitas" value="100" />
 		<property name="academia" ref="academia1" />
 		<property name="video" value="https://example.com/video1.mp4" />
 	</bean>
