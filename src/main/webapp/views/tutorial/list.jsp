@@ -27,34 +27,38 @@
 	name="tutoriales" requestURI="${requestURI}" id="row">
 
 	<!-- Edit Button -->
-	<spring:message code="tutorial.editar" var="editMessage" />
-
+	<security:authorize access="hasRole('ACADEMIA')">
+		<spring:message code="tutorial.editar" var="editMessage" />
 		<display:column>
-			<a href="tutorial/academia/edit.do?tutorialId=${row.id}">
-				<spring:message	code="tutorial.editar" />
+			<a href="tutorial/academia/edit.do?tutorialId=${row.id}"> <spring:message
+					code="tutorial.editar" />
 			</a>
-		</display:column>		
+		</display:column>
+
+	</security:authorize>
 
 	<!-- Attributes -->
 
-	<spring:message code="tutorial.titulo"
-		var="titulo" />
-	<display:column property="titulo" title="${titulo}" sortable="true"/>
+	<spring:message code="tutorial.titulo" var="titulo" />
+	<display:column property="titulo" title="${titulo}" sortable="true" />
 
-	<spring:message code="tutorial.descripcion"
-		var="descripcion" />
-	<display:column property="descripcion" title="${descripcion}" sortable="true"/>
-	
-	<spring:message code="tutorial.video"
-		var="video" />
-	<display:column property="video" title="${video}" sortable="true"/>
-		
+	<spring:message code="tutorial.descripcion" var="descripcion" />
+	<display:column property="descripcion" title="${descripcion}"
+		sortable="true" />
+
+	<spring:message code="tutorial.video" var="video" />
+	<display:column property="video" title="${video}" sortable="true" />
+
 
 
 </display:table>
 
+<security:authorize access="hasRole('ACADEMIA')">
 	<div>
 		<a href="tutorial/academia/create.do"> <spring:message
 				code="tutorial.create" />
 		</a>
 	</div>
+</security:authorize>
+
+

@@ -12,5 +12,11 @@
             <a href="${url}">${curso.titulo} - ${curso.nivel}</a><br/>
         </c:forEach>
     </display:column>
+    
+    	<display:column>
+		<a href="tutorial/academia/listFromAcademia.do?academiaId=${row.id}"> <spring:message
+				code="academia.listTutoriales" />
+		</a>
+	</display:column>
 </display:table>
 

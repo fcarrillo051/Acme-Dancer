@@ -72,8 +72,9 @@
 		<security:intercept-url
 			pattern="/solicitud/list-academy.do" access="hasRole('ACADEMIA')" />
 
+
 		<security:intercept-url
-			pattern="/tutorial/academia/**" access="hasRole('ACADEMIA')" />
+			pattern="/tutorial/academia/**" access="isAuthenticated()" />
 
 		<security:intercept-url
 			pattern="/solicitud/aceptar.do" access="hasRole('ACADEMIA')" />

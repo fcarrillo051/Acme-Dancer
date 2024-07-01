@@ -57,6 +57,21 @@ public class TutorialAcademiaControler extends AbstractController {
 		return result;
 	}
 
+	@RequestMapping(value = "/listFromAcademia", method = RequestMethod.GET)
+	public ModelAndView listAcademia(@RequestParam final int academiaId) {
+		ModelAndView result;
+
+		Collection<Tutorial> tutoriales;
+
+		tutoriales = this.tutorialService.findByAcademia(academiaId);
+
+		result = new ModelAndView("tutorial/list");
+		result.addObject("tutoriales", tutoriales);
+		result.addObject("requestURI", "tutorial/academia/list.do");
+
+		return result;
+	}
+
 	// Creation ---------------------------------------------------------------
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
