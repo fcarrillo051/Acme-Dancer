@@ -3,7 +3,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<form:form action="/tutorial/academia/edit.do" method="post" modelAttribute="tutorial">
+<form:form action="tutorial/academia/edit.do" modelAttribute="tutorial">
     <form:hidden path="id" />
     <form:hidden path="version" />
     <form:hidden path="academia" />

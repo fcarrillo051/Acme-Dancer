@@ -28,13 +28,12 @@
 
 	<!-- Edit Button -->
 	<spring:message code="tutorial.editar" var="editMessage" />
-	<display:column title="${editMessage}">
-		<a href="<c:url value='/tutorial/academia/edit.do'>
-            <c:param name='tutorialId' value='${row.id}' />
-        </c:url>">
-            <spring:message code="tutorial.editar"/>
-        </a>
-    </display:column>
+
+		<display:column>
+			<a href="tutorial/academia/edit.do?tutorialId=${row.id}">
+				<spring:message	code="tutorial.editar" />
+			</a>
+		</display:column>		
 
 	<!-- Attributes -->
 
@@ -53,3 +52,9 @@
 
 
 </display:table>
+
+	<div>
+		<a href="tutorial/academia/create.do"> <spring:message
+				code="tutorial.create" />
+		</a>
+	</div>

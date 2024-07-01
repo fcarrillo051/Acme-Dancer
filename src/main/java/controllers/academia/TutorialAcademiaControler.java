@@ -40,7 +40,7 @@ public class TutorialAcademiaControler extends AbstractController {
 
 	//list ---------------------------------------------------------------------
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView listCRUD() {
+	public ModelAndView list() {
 		ModelAndView result;
 
 		Collection<Tutorial> tutoriales;
@@ -53,6 +53,19 @@ public class TutorialAcademiaControler extends AbstractController {
 		result = new ModelAndView("tutorial/list");
 		result.addObject("tutoriales", tutoriales);
 		result.addObject("requestURI", "tutorial/academia/list.do");
+
+		return result;
+	}
+
+	// Creation ---------------------------------------------------------------
+
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+		ModelAndView result;
+		Tutorial tutorial;
+
+		tutorial = this.tutorialService.create();
+		result = this.createEditModelAndView(tutorial);
 
 		return result;
 	}
@@ -70,20 +83,17 @@ public class TutorialAcademiaControler extends AbstractController {
 		return result;
 	}
 
-	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Tutorial tutorial, final BindingResult binding) {
 		ModelAndView result;
-		System.out.println("**************SE VE*************");
 
-		if (binding.hasErrors()) {
+		if (binding.hasErrors())
 			result = this.createEditModelAndView(tutorial);
-			System.out.println("**************ERROR*************");
-		} else
+		else
 			try {
 				this.tutorialService.save(tutorial);
 				result = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				System.out.println("**************ERROR*************");
 				result = this.createEditModelAndView(tutorial, "tutorial.commit.error");
 			}
 
