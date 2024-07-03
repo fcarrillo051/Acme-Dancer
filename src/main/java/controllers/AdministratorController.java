@@ -20,13 +20,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CursoService;
+import services.TutorialServices;
 
 @Controller
 @RequestMapping("/administrator")
 public class AdministratorController extends AbstractController {
 
 	@Autowired
-	private CursoService cursoService;
+	private CursoService		cursoService;
+
+	@Autowired
+	private TutorialServices	tutorialService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -72,10 +76,12 @@ public class AdministratorController extends AbstractController {
 
 		Map<String, Double> statsCursosPorAcademia = this.cursoService.getStatsCursosPorAcademia();
 		Map<String, Double> statsSolicitudesPorCurso = this.cursoService.getStatsSolicitudesPorCurso();
+		Map<String, Double> statsTutorialesPorCurso = this.tutorialService.getStatsTutorialesPorAcademia();
 
 		result = new ModelAndView("administrator/dashboard");
 		result.addObject("statsCursosPorAcademia", statsCursosPorAcademia);
 		result.addObject("statsSolicitudesPorCurso", statsSolicitudesPorCurso);
+		result.addObject("statsTutorialesPorCurso", statsTutorialesPorCurso);
 		result.addObject("requestURI", "administrator/dashboard.do");
 
 		return result;
