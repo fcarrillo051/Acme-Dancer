@@ -69,20 +69,16 @@ public class TutorialServices {
 			stats.put("min", 0.0);
 			stats.put("max", 0.0);
 			stats.put("avg", 0.0);
-			stats.put("stddev", 0.0);
 			return stats;
 		}
 
 		double min = Collections.min(data);
 		double max = Collections.max(data);
 		double avg = data.stream().mapToDouble(a -> a).average().orElse(0.0);
-		double variance = data.stream().mapToDouble(a -> Math.pow(a - avg, 2)).average().orElse(0.0);
-		double stddev = Math.sqrt(variance);
 
 		stats.put("min", min);
 		stats.put("max", max);
 		stats.put("avg", avg);
-		stats.put("stddev", stddev);
 
 		return stats;
 	}

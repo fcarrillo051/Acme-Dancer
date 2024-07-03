@@ -41,19 +41,17 @@
         </tr>
     </table>
     
-        <h2><spring:message code="administrator.dashboard.solicitudesPorCurso" /></h2>
+        <h2><spring:message code="administrator.dashboard.TutorialesPorAcademia" /></h2>
     <table>
         <tr>
             <th><spring:message code="administrator.dashboard.min" /></th>
             <th><spring:message code="administrator.dashboard.avg" /></th>
             <th><spring:message code="administrator.dashboard.max" /></th>
-            <th><spring:message code="administrator.dashboard.stddev" /></th>
         </tr>
         <tr>
-            <td>${statsSolicitudesPorCurso.min}</td>
-            <td>${statsSolicitudesPorCurso.avg}</td>
-            <td>${statsSolicitudesPorCurso.max}</td>
-            <td>${statsSolicitudesPorCurso.stddev}</td>
+            <td>${statsTutorialesPorAcademia.min}</td>
+            <td>${statsTutorialesPorAcademia.avg}</td>
+            <td>${statsTutorialesPorAcademia.max}</td>
         </tr>
     </table>
 </body>
