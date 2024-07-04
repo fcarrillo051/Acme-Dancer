@@ -6,6 +6,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -27,6 +28,7 @@ public class Tutorial extends DomainEntity {
 	private String	titulo;
 	private String	descripcion;
 	private String	video;
+	private int		visitas;
 
 
 	@NotBlank
@@ -54,6 +56,15 @@ public class Tutorial extends DomainEntity {
 
 	public void setVideo(final String video) {
 		this.video = video;
+	}
+
+	@Min(0)
+	public int getVisitas() {
+		return this.visitas;
+	}
+
+	public void setVisitas(int visitas) {
+		this.visitas = visitas;
 	}
 
 

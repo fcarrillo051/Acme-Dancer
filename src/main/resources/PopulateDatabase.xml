@@ -131,6 +131,7 @@
 		<property name="descripcion" value="Estilo 1" />
 		<property name="academia" ref="academia1" />
 		<property name="video" value="https://example.com/video1.mp4" />
+		<property name="visitas" value="5" />
 	</bean>
 
 	<!-- Cursos -->

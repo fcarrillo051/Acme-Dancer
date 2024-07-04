@@ -3,6 +3,7 @@ package services;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,6 +62,21 @@ public class TutorialServices {
 		List<Integer> TutorialesPorAcademia = academias.stream().map(a -> a.getTutoriales().size()).collect(Collectors.toList());
 
 		return this.calculateStatistics(TutorialesPorAcademia);
+	}
+
+	public Map<String, Double> getStatsVisitasPorTutoriales() {
+		List<Academia> academias = this.academiaRepository.findAll();
+		List<Tutorial> tutoriales = academias.stream().flatMap(a -> a.getTutoriales().stream()).collect(Collectors.toList());
+		List<Integer> visitasPorTutoriales = tutoriales.stream().map(Tutorial::getVisitas).collect(Collectors.toList());
+
+		return this.calculateStatistics(visitasPorTutoriales);
+	}
+
+	public List<Tutorial> getTutorialesOrdenadosPorVisitas() {
+		List<Academia> academias = this.academiaRepository.findAll();
+		List<Tutorial> tutoriales = academias.stream().flatMap(a -> a.getTutoriales().stream()).collect(Collectors.toList());
+		return tutoriales.stream().sorted(Comparator.comparingInt(Tutorial::getVisitas)).collect(Collectors.toList());
+
 	}
 
 	private Map<String, Double> calculateStatistics(List<Integer> data) {

@@ -48,6 +48,9 @@
 
 	<spring:message code="tutorial.video" var="video" />
 	<display:column property="video" title="${video}" sortable="true" />
+	
+		<spring:message code="tutorial.visitas" var="visitas" />
+	<display:column property="visitas" title="${visitas}" sortable="true" />
 
 
 

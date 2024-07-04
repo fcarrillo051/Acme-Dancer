@@ -77,11 +77,13 @@ public class AdministratorController extends AbstractController {
 		Map<String, Double> statsCursosPorAcademia = this.cursoService.getStatsCursosPorAcademia();
 		Map<String, Double> statsSolicitudesPorCurso = this.cursoService.getStatsSolicitudesPorCurso();
 		Map<String, Double> statsTutorialesPorAcademia = this.tutorialService.getStatsTutorialesPorAcademia();
+		Map<String, Double> StatsVisitasPorTutoriales = this.tutorialService.getStatsVisitasPorTutoriales();
 
 		result = new ModelAndView("administrator/dashboard");
 		result.addObject("statsCursosPorAcademia", statsCursosPorAcademia);
 		result.addObject("statsSolicitudesPorCurso", statsSolicitudesPorCurso);
 		result.addObject("statsTutorialesPorAcademia", statsTutorialesPorAcademia);
+		result.addObject("StatsVisitasPorTutoriales", StatsVisitasPorTutoriales);
 		result.addObject("requestURI", "administrator/dashboard.do");
 
 		return result;

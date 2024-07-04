@@ -22,7 +22,7 @@ import services.TutorialServices;
 
 @Controller
 @RequestMapping("/tutorial/academia")
-public class TutorialAcademiaControler extends AbstractController {
+public class TutorialAcademiaController extends AbstractController {
 
 	// Services ---------------------------------------------------------------
 	@Autowired
@@ -34,7 +34,7 @@ public class TutorialAcademiaControler extends AbstractController {
 
 	// Constructors -----------------------------------------------------------
 
-	public TutorialAcademiaControler() {
+	public TutorialAcademiaController() {
 		super();
 	}
 
