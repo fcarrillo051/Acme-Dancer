@@ -24,14 +24,15 @@
     <spring:message code="estilo.videos" var="videosHeader" />
     <display:column title="${videosHeader}">
         <c:forEach var="video" items="${row.videos}">
-            <c:out value="${video}" /><br/>
+            <iframe width="400" height="400" src="${video}"></iframe>
         </c:forEach>
     </display:column>
-
+    
     <spring:message code="estilo.imagenes" var="imagenesHeader" />
-    <display:column title="${imagenesHeader}">
-        <c:forEach var="imagen" items="${row.imagenes}">
-            <c:out value="${imagen}" /><br/>
+>
+    <display:column>
+    <c:forEach var="imagen" items="${row.imagenes}">
+           <img src="${imagen}" style="max-width:100px; max-height:100px;" />
         </c:forEach>
     </display:column>
 
