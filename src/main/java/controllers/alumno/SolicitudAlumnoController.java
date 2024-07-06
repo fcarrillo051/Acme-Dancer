@@ -87,6 +87,7 @@ public class SolicitudAlumnoController extends AbstractController {
 
 	// Creation ---------------------------------------------------------------
 
+	//Crear Solicitud
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView add() {
 		ModelAndView result;

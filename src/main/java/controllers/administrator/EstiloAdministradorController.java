@@ -38,7 +38,7 @@ public class EstiloAdministradorController extends AbstractController {
 		super();
 	}
 
-	// Listing ----------------------------------------------------------------
+	// Listar ----------------------------------------------------------------
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {

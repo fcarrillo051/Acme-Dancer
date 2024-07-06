@@ -31,6 +31,7 @@ public class CursoAdministratorController extends AbstractController {
 
 	// Listing ----------------------------------------------------------------
 
+	//Listar Cursos
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
