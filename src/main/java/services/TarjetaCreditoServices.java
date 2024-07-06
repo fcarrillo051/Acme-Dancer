@@ -16,7 +16,10 @@ public class TarjetaCreditoServices {
 
 	// Managed repository -------------------------------
 	@Autowired
-	private TarjetaCreditoRepository tarjetaCreditoRepository;
+	private TarjetaCreditoRepository	tarjetaCreditoRepository;
+
+	@Autowired
+	private AlumnoService				alumnoService;
 
 
 	// Simple CRUD methods ------------------------------
@@ -40,5 +43,7 @@ public class TarjetaCreditoServices {
 		this.tarjetaCreditoRepository.delete(tarjetaCredito);
 	}
 
-	// Other business methods ---------------------------
+	public TarjetaCredito findByAlumno(int alumnoId) {
+		return this.tarjetaCreditoRepository.findByAlumno(alumnoId);
+	}
 }

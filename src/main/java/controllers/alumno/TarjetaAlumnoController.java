@@ -3,7 +3,6 @@ package controllers.alumno;
 
 import javax.validation.Valid;
 
-import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import controllers.AbstractController;
 import domain.Alumno;
 import domain.TarjetaCredito;
+import security.RegisterService;
 import services.AlumnoService;
 import services.TarjetaCreditoServices;
 
@@ -26,6 +26,9 @@ public class TarjetaAlumnoController extends AbstractController {
 	@Autowired
 	private TarjetaCreditoServices	tarjetaService;
 
+	@Autowired
+	private RegisterService			service;
+
 
 	// Constructor ---------------------------------------------------------------
 
@@ -33,21 +36,6 @@ public class TarjetaAlumnoController extends AbstractController {
 		super();
 	}
 
-	// Creation ---------------------------------------------------------------
-
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView create() {
-		ModelAndView result;
-
-		TarjetaCredito tar;
-
-		tar = this.tarjetaService.create();
-		result = this.createEditModelAndView(tar);
-
-		return result;
-	}
-
-	//Edit ---------------------------------------------------------------------
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView edit() {
 		ModelAndView result;
@@ -57,12 +45,9 @@ public class TarjetaAlumnoController extends AbstractController {
 		alumno = this.alumnoService.findByPrincipal();
 		tar = alumno.getTarjetaCredito();
 
-		if (tar == null) {
-			result = new ModelAndView("redirect:create.do");
-			return result;
+		if (tar == null)
+			tar = this.tarjetaService.create();
 
-		}
-		Assert.assertNotNull(tar);
 		result = this.createEditModelAndView(tar);
 
 		return result;
@@ -73,36 +58,44 @@ public class TarjetaAlumnoController extends AbstractController {
 		ModelAndView result;
 
 		if (binding.hasErrors())
-
 			result = this.createEditModelAndView(tar);
 		else
 			try {
 				this.tarjetaService.save(tar);
+
+				Alumno alumno = this.alumnoService.findByPrincipal();
+
+				if (alumno.getTarjetaCredito() == null) {
+					TarjetaCredito tar2 = this.tarjetaService.findByAlumno(alumno.getId());
+					alumno.setTarjetaCredito(tar2);
+					this.alumnoService.save(alumno);
+				}
+
 				result = new ModelAndView("redirect:/");
-			} catch (final Throwable oops) {
-				result = this.createEditModelAndView(tar, "tarjeta.commit.error");
+			} catch (Exception e) {
+				System.out.println("tiene error de guardado");
+				System.out.println(e.getMessage());
+				result = new ModelAndView("tarjeta/edit");
+				result.addObject("tarjetaDeCredito", tar);
+				result.addObject("alumno", this.alumnoService.findByPrincipal());
 			}
 
 		return result;
 	}
 
-	// Ancillary methods ------------------------------------------------------
-
 	protected ModelAndView createEditModelAndView(final TarjetaCredito tar) {
-		ModelAndView result;
-
-		result = this.createEditModelAndView(tar, null);
-
-		return result;
+		return this.createEditModelAndView(tar, null);
 	}
 
 	protected ModelAndView createEditModelAndView(final TarjetaCredito tar, final String message) {
 		ModelAndView result;
-
 		Alumno alumno;
 
 		alumno = this.alumnoService.findByPrincipal();
 		tar.setAlumno(alumno);
+
+		System.out.println("Version " + tar.getVersion() + " Año Cad " + tar.getAnioCad() + " CVV " + tar.getCvv() + " Marca " + tar.getMesCad() + " Mes Cad " + tar.getMesCad() + " Nombre " + tar.getNombreTitular() + " Numero " + tar.getNumero()
+			+ " Alumno " + tar.getAlumno());
 
 		result = new ModelAndView("tarjeta/edit");
 		result.addObject("tarjetaDeCredito", tar);
