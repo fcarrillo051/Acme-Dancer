@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import controllers.AbstractController;
 import domain.Alumno;
 import domain.TarjetaCredito;
-import security.RegisterService;
 import services.AlumnoService;
 import services.TarjetaCreditoServices;
 
@@ -26,9 +25,6 @@ public class TarjetaAlumnoController extends AbstractController {
 	@Autowired
 	private TarjetaCreditoServices	tarjetaService;
 
-	@Autowired
-	private RegisterService			service;
-
 
 	// Constructor ---------------------------------------------------------------
 
@@ -36,6 +32,7 @@ public class TarjetaAlumnoController extends AbstractController {
 		super();
 	}
 
+	//METODO GET DEL EDITAR TARJETA CREDITO
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView edit() {
 		ModelAndView result;
@@ -53,6 +50,7 @@ public class TarjetaAlumnoController extends AbstractController {
 		return result;
 	}
 
+	//METODO POST DEL EDITAR O AGREGAR NUEVA TARJETA DE CREDITO
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final TarjetaCredito tar, final BindingResult binding) {
 		ModelAndView result;
@@ -65,6 +63,7 @@ public class TarjetaAlumnoController extends AbstractController {
 
 				Alumno alumno = this.alumnoService.findByPrincipal();
 
+				//Si el Alumno no tiene Tarjeta, le añado la tarjeta nueva
 				if (alumno.getTarjetaCredito() == null) {
 					TarjetaCredito tar2 = this.tarjetaService.findByAlumno(alumno.getId());
 					alumno.setTarjetaCredito(tar2);
@@ -72,6 +71,7 @@ public class TarjetaAlumnoController extends AbstractController {
 				}
 
 				result = new ModelAndView("redirect:/");
+
 			} catch (Exception e) {
 				System.out.println("tiene error de guardado");
 				System.out.println(e.getMessage());
