@@ -87,6 +87,9 @@
 
 		<security:intercept-url
 			pattern="/curso/solicitar.do" access="hasRole('ALUMNO')" />
+			
+					<security:intercept-url
+			pattern="/tarjeta/alumno/**" access="hasRole('ALUMNO')" />
 
 
 		<security:intercept-url pattern="/solicitud/**"

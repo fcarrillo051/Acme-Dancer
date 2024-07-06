@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!-- 
- * tiles.xml
- *
- * Copyright (C) 2018 Universidad de Sevilla
- * 
- * The use of this project is hereby constrained to the conditions of the 
- * TDG Licence, a copy of which you may download from 
- * http://www.tdg-seville.info/License.html
- -->
+<!-- * tiles.xml * * Copyright (C) 2018 Universidad de Sevilla * * The use 
+	of this project is hereby constrained to the conditions of the * TDG Licence, 
+	a copy of which you may download from * http://www.tdg-seville.info/License.html -->
 
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
-      
+
 <tiles-definitions>
 
-	<definition name="alumno/edit" extends="master.page">	
+	<definition name="alumno/edit" extends="master.page">
 		<put-attribute name="title" value="Edit Alumn" />
-		<put-attribute name="body" value="/views/alumno/edit.jsp" />
+		<put-attribute name="body"
+			value="/views/alumno/edit.jsp" />
 	</definition>
-	
-	<definition name="alumno/action-2" extends="master.page">	
+
+	<definition name="alumno/action-2" extends="master.page">
 		<put-attribute name="title" value="Alumn: Acción 2" />
-		<put-attribute name="body" value="/views/alumno/action-2.jsp" />
+		<put-attribute name="body"
+			value="/views/alumno/action-2.jsp" />
 	</definition>
-	
+
+	<definition name="tarjeta/edit" extends="master.page">
+		<put-attribute name="title" value="Edit Credit Card" />
+		<put-attribute name="body" value="/views/alumno/EditTC.jsp" />
+	</definition>
+
 </tiles-definitions>

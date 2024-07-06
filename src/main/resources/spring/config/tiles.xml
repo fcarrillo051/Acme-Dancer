@@ -27,6 +27,7 @@
 		<value>/views/curso/tiles.xml</value>
 		<value>/views/estilo/tiles.xml</value>
 		<value>/views/academia/tiles.xml</value>
+		<value>/views/alumno/tiles.xml</value>
 		<value>/views/profile/tiles.xml</value>
 		<value>/views/solicitud/tiles.xml</value>
 		<value>/views/tutorial/tiles.xml</value>

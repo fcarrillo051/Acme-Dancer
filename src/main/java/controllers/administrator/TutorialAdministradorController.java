@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
 import domain.Tutorial;
-import services.AcademiaService;
 import services.TutorialServices;
 
 @Controller
@@ -19,11 +18,9 @@ import services.TutorialServices;
 public class TutorialAdministradorController extends AbstractController {
 
 	// Services ---------------------------------------------------------------
-	@Autowired
-	private AcademiaService		academiaService;
 
 	@Autowired
-	private TutorialServices	tutorialService;
+	private TutorialServices tutorialService;
 
 
 	// Constructors -----------------------------------------------------------

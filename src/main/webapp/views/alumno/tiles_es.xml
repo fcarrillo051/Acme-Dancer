@@ -26,4 +26,9 @@
 		<put-attribute name="body" value="/views/alumno/action-2.jsp" />
 	</definition>
 	
+		<definition name="tarjeta/edit" extends="master.page">	
+		<put-attribute name="title" value="Editar Tarjeta" />
+		<put-attribute name="body" value="/views/alumno/EditTC.jsp" />
+	</definition>
+	
 </tiles-definitions>

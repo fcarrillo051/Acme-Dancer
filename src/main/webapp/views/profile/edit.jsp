@@ -63,8 +63,17 @@
                 <spring:message code="profile.failed" />
             </div>
         </jstl:if>
+        
+        	<!-- Edit Button -->
+		<security:authorize access="hasRole('ALUMNO')">
 
-        <input type="submit" name="save"
+				<a href="tarjeta/alumno/edit.do" type="button"> <spring:message
+					 	code="profile.alumno.editarTC" />
+				</a>
+
+		</security:authorize>
+
+		<input type="submit" name="save"
 				value="<spring:message code='profile.save' />" />&nbsp; 
 		<input type="button" name="cancel"
 				value="<spring:message code='profile.cancel' />"
