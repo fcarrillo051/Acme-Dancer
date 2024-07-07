@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
@@ -34,7 +35,7 @@ public class TarjetaAlumnoController extends AbstractController {
 
 	//METODO GET DEL EDITAR TARJETA CREDITO
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit() {
+	public ModelAndView edit(@RequestParam(required = false) final boolean showError) {
 		ModelAndView result;
 		Alumno alumno;
 		TarjetaCredito tar;
@@ -45,7 +46,11 @@ public class TarjetaAlumnoController extends AbstractController {
 		if (tar == null)
 			tar = this.tarjetaService.create();
 
-		result = this.createEditModelAndView(tar);
+		tar.setAlumno(alumno);
+		result = new ModelAndView("tarjeta/edit");
+		result.addObject("tarjetaDeCredito", tar);
+		result.addObject("alumno", alumno);
+		result.addObject("showError", showError);
 
 		return result;
 	}
@@ -54,14 +59,18 @@ public class TarjetaAlumnoController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final TarjetaCredito tar, final BindingResult binding) {
 		ModelAndView result;
-
-		if (binding.hasErrors())
-			result = this.createEditModelAndView(tar);
-		else
+		Alumno alumno;
+		if (binding.hasErrors()) {
+			alumno = this.alumnoService.findByPrincipal();
+			result = new ModelAndView("tarjeta/edit");
+			result.addObject("tarjetaDeCredito", tar);
+			result.addObject("alumno", alumno);
+			result.addObject("showError", true);
+		} else
 			try {
 				this.tarjetaService.save(tar);
 
-				Alumno alumno = this.alumnoService.findByPrincipal();
+				alumno = this.alumnoService.findByPrincipal();
 
 				//Si el Alumno no tiene Tarjeta, le añado la tarjeta nueva
 				if (alumno.getTarjetaCredito() == null) {
@@ -82,27 +91,4 @@ public class TarjetaAlumnoController extends AbstractController {
 
 		return result;
 	}
-
-	protected ModelAndView createEditModelAndView(final TarjetaCredito tar) {
-		return this.createEditModelAndView(tar, null);
-	}
-
-	protected ModelAndView createEditModelAndView(final TarjetaCredito tar, final String message) {
-		ModelAndView result;
-		Alumno alumno;
-
-		alumno = this.alumnoService.findByPrincipal();
-		tar.setAlumno(alumno);
-
-		System.out.println("Version " + tar.getVersion() + " Año Cad " + tar.getAnioCad() + " CVV " + tar.getCvv() + " Marca " + tar.getMesCad() + " Mes Cad " + tar.getMesCad() + " Nombre " + tar.getNombreTitular() + " Numero " + tar.getNumero()
-			+ " Alumno " + tar.getAlumno());
-
-		result = new ModelAndView("tarjeta/edit");
-		result.addObject("tarjetaDeCredito", tar);
-		result.addObject("alumno", alumno);
-		result.addObject("message", message);
-
-		return result;
-	}
-
 }

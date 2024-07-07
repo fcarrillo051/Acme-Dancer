@@ -69,7 +69,7 @@ public class AlumnoService {
 		return result;
 	}
 
-	private Alumno findByUserAccount(UserAccount userAccount) {
+	public Alumno findByUserAccount(UserAccount userAccount) {
 		Assert.notNull(userAccount);
 		Alumno result;
 		result = this.alumnoRepository.findByUserAccountId(userAccount.getId());
@@ -146,4 +146,5 @@ public class AlumnoService {
 		return result;
 	}
 	// Other business methods ---------------------------
+
 }

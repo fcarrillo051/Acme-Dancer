@@ -64,14 +64,7 @@
             </div>
         </jstl:if>
         
-        	<!-- Edit Button -->
-		<security:authorize access="hasRole('ALUMNO')">
-
-				<a href="tarjeta/alumno/edit.do" type="button"> <spring:message
-					 	code="profile.alumno.editarTC" />
-				</a>
-
-		</security:authorize>
+        
 
 		<input type="submit" name="save"
 				value="<spring:message code='profile.save' />" />&nbsp; 

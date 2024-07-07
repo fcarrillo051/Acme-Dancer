@@ -35,6 +35,14 @@
 								code="master.page.alumno.action.1" /></a></li>
 					<li><a href="solicitud/list-alumn.do"><spring:message
 								code="master.page.alumno.action.2" /></a></li>
+					<li><a href="comentario/list-actor.do"><spring:message
+								code="master.page.actor.list.comentarios" /></a></li>
+					<li><a href="comentario/list-suscriptor.do"><spring:message
+								code="master.page.actor.list.suscripciones" /></a></li>
+					<li><a href="comentario/list-actor-suscriptor.do"><spring:message
+								code="master.page.actor.list.actor.suscripciones" /></a></li>
+					<li><a href="comentario/create.do"><spring:message
+								code="master.page.actor.crear.comentarios" /></a></li>
 				</ul></li>
 		</security:authorize>
 
@@ -49,6 +57,14 @@
 								code="master.page.academia.cursos" /></a></li>
 					<li><a href="tutorial/academia/list.do"><spring:message
 								code="master.page.academia.tutoriales" /></a></li>
+					<li><a href="comentario/list-actor.do"><spring:message
+								code="master.page.actor.list.comentarios" /></a></li>
+					<li><a href="comentario/list-suscriptor.do"><spring:message
+								code="master.page.actor.list.suscripciones" /></a></li>
+					<li><a href="comentario/list-actor-suscriptor.do"><spring:message
+								code="master.page.actor.list.actor.suscripciones" /></a></li>
+					<li><a href="comentario/create.do"><spring:message
+								code="master.page.actor.crear.comentarios" /></a></li>
 
 				</ul></li>
 		</security:authorize>
@@ -81,6 +97,9 @@
 					<security:authorize access="hasRole('ALUMNO')">
 						<li><a href="profile/edit.do"><spring:message
 									code="master.page.profile.edit" /></a></li>
+						<li><a href="tarjeta/alumno/edit.do" type="button"> <spring:message
+					 	code="master.alumno.editarTC" />
+							</a></li>
 					</security:authorize>
 
 					<li><a href="j_spring_security_logout"><spring:message
@@ -93,6 +112,8 @@
 						code="master.page.academias" /></a></li>
 			<li><a class="fNiv" href="estilo/list.do"><spring:message
 						code="master.page.estilos" /></a></li>
+			<li><a class="fNiv" href="comentario/list.do"><spring:message
+					code="master.page.comentarios" /></a></li>
 		</security:authorize>
 	</ul>
 </div>

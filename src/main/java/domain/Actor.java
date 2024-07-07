@@ -1,12 +1,16 @@
 
 package domain;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -26,6 +30,7 @@ public abstract class Actor extends DomainEntity {
 
 	public Actor() {
 		super();
+		this.comentario = new HashSet<Comentario>();
 	}
 
 
@@ -85,10 +90,29 @@ public abstract class Actor extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private UserAccount userAccount;
+	private UserAccount		userAccount;
+	Collection<Comentario>	comentario;
+	Collection<Suscripcion>	suscripcion;
 
 
-	// FALTA AÑADIR LA RELACION PARA QUE LOS ACTORES SE PUEDAN SUSCRIBIR A OTROS ACTORES
+	@OneToMany(mappedBy = "actores", cascade = CascadeType.ALL)
+	public Collection<Comentario> getComentario() {
+		return this.comentario;
+	}
+
+	public void setComentario(final Collection<Comentario> comentario) {
+		this.comentario = comentario;
+	}
+
+	public void addCometario(final Comentario comentario) {
+		this.comentario.add(comentario);
+		comentario.setActores(this);
+	}
+
+	public void removeCometario(final Comentario comentario) {
+		this.comentario.remove(comentario);
+		comentario.setActores(null);
+	}
 
 	@NotNull
 	@Valid

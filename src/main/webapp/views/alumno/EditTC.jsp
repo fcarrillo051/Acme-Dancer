@@ -49,6 +49,11 @@
 	<form:errors cssClass="error" path="cvv" />
 	<br />
 
+	<c:if test="${showError}">
+			<div class="error">
+				<spring:message code="tarjeta.commit.error" />
+			</div>
+		</c:if>
 
 	<input type="submit" name="save"
 		value="<spring:message code='alumno.edit' />" />&nbsp; 

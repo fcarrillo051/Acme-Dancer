@@ -117,6 +117,17 @@
 		<security:intercept-url
 			pattern="/alumno/solicitar.do" access="isAuthenticated()" />
 
+
+		<security:intercept-url pattern="/comentario/list.do" access="isAuthenticated()" /> 
+		<security:intercept-url pattern="/comentario/list-actor.do" access="isAuthenticated()" /> 
+		<security:intercept-url pattern="/comentario/list-suscriptor.do" access="isAuthenticated()" /> 
+		<security:intercept-url pattern="/comentario/list-actor-suscriptor.do" access="isAuthenticated()" /> 
+		<security:intercept-url pattern="/comentario/create.do" access="isAuthenticated()" /> 
+		<security:intercept-url pattern="/comentario/edit.do" access="isAuthenticated()" /> 
+		<security:intercept-url pattern="/comentario/suscribirse.do" access="isAuthenticated()" /> 
+		<security:intercept-url pattern="/comentario/solicitar.do" access="isAuthenticated()" /> 
+		
+		
 		<security:intercept-url pattern="/**"
 			access="hasRole('NONE')" />
 

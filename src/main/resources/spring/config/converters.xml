@@ -15,7 +15,7 @@
 	<util:list id="converters">
 		<bean class="converters.AcademiaToStringConverter" />
 		<bean class="converters.StringToAcademiaConverter" />
-
+		
 		<bean class="converters.AdministradorToStringConverter" />
 		<bean class="converters.StringToAdministradorConverter" />
 
@@ -36,6 +36,10 @@
 
 		<bean class="converters.StringToTutorialConverter" />
 		<bean class="converters.TutorialToStringConverter" />
+		
+		<bean class="converters.ActorToStringConverter" />
+		<bean class="converters.StringToActorConverter" />	
+		
 
 	</util:list>
 
